@@ -1,0 +1,19 @@
+html, body {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  html, body {
+    font-size: 9px;
+  }
+}

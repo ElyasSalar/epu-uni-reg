@@ -1,0 +1,60 @@
+@use "sass:map";
+
+@function toRem($size) {
+  @return ($size / 16) * 1rem;
+}
+
+$screen-sizes: (
+  mobile: 320px,
+  tablet: 768px,
+  desktop: 1024px,
+  large-desktop: 1280px,
+);
+
+@mixin forScreen($type) {
+	@if $type == "mobile" {
+		@media (max-width: map.get($screen-sizes, "mobile")) {
+			@content;
+		}
+	}
+	@if $type == "tablet" {
+		@media (max-width: map.get($screen-sizes, "tablet")) {
+			@content;
+		}
+	}
+	@if $type == "desktop" {
+		@media (max-width: map.get($screen-sizes, "desktop")) {
+			@content;
+		}
+	}
+	@if $type == "large-desktop" {
+		@media (max-width: map.get($screen-sizes, "large-desktop")) {
+			@content;
+		}
+	}
+}
+
+@function opposite-direction($directions) {
+  $opposite-directions: ();
+  $direction-map: (
+    'top':    'bottom',
+    'right':  'left',
+    'bottom': 'top',
+    'left':   'right',
+    'center': 'center',
+    'ltr':    'rtl',
+    'rtl':    'ltr'
+  );
+ 
+  @each $direction in $directions {
+    $direction: to-lower-case($direction);
+    
+    @if map-has-key($direction-map, $direction) { 
+      $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+    } @else {
+      @warn "No opposite direction can be found for `#{$direction}`. Direction omitted.";
+    }
+  }
+ 
+  @return $opposite-directions;
+}

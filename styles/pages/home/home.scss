@@ -1,0 +1,91 @@
+.home {
+
+  &__cover {
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    position: relative;
+    align-items: center;
+    background-size: cover;
+    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+        to bottom,
+        rgba($color-primary, 70%),
+        rgba(black, 70%)
+      ),
+      url("../../../assets/images/epu-cover.jpg");
+  }
+
+  &__cover-content {
+    text-transform: capitalize;
+    color: white;
+  }
+
+  &__cover-content-logo {
+    height: 200px;
+    width: auto;
+  }
+
+  &__cover-content-title {
+    $font-size: 60;
+    margin-block: 0;
+    font-weight: 700;
+    font-size: toRem($font-size);
+    line-height: toRem($font-size * 1.5);
+  }
+  
+  &__cover-content-subtitle {
+    $font-size: 36;
+    margin-block: 0;
+    font-weight: 500;
+    font-size: toRem($font-size);
+    line-height: toRem($font-size * 1.5);
+  }
+  
+  &__cover-content-buttons {
+    justify-content: center;
+    font-size: toRem(26);
+    white-space: nowrap;
+    margin-top: 60px;
+    display: flex;
+    border: none;
+    gap: 40px;
+  }
+
+  &__cover-content-primary {
+    padding-inline: 22px;
+    padding-block: 18px;
+  }
+
+  &__cover-content-secondary {
+    padding-inline: 22px;
+    padding-block: 18px;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+
+    &:hover &-icon, &:focus &-icon {
+      transform: translateX(-10px);
+    }
+  }
+
+  &__cover-content-secondary-icon {
+    transition: transform 300ms ease-in-out;
+    width: toRem(30);
+    rotate: 180deg;
+  }
+}
+
+[dir="rtl"] {
+  .home {
+    &__cover-content-secondary-icon {
+      rotate: 0deg;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  @import "./home-mobile.scss";
+}

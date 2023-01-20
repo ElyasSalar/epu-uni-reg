@@ -1,0 +1,13 @@
+// unitlities
+@import "./utils.scss";
+
+// general
+@import "./colors.scss";
+@import "./globals.scss";
+
+// components
+@import "./components/button.scss";
+@import "./components/navbar.scss";
+
+// pages
+@import "./pages/home/home.scss";

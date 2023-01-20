@@ -1,0 +1,45 @@
+.button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 6px;
+  text-transform: capitalize;
+  transition: background-color 200ms ease-in-out;
+  
+  &--primary {
+    background-color: $color-secondary;
+    color: black;
+
+    &:hover, &:focus {
+      background-color: darken($color-secondary, 10%);
+    }
+    &:active {
+      background-color: darken($color-secondary, 20%);
+    }
+    &:disabled {
+      background-color: lighten($color-secondary, 10%);
+      color: darken(white, 20%);
+      cursor: not-allowed;
+    }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+
+    &:hover, &:focus {
+      background-color: lighten(black, 10%);
+    }
+    &:active {
+      background-color: darken(black, 10%);
+    }
+    &:disabled {
+      background-color: transparent;
+      color: lighten($color-secondary, 10%);
+      border-color: lighten($color-secondary, 10%);
+      cursor: not-allowed;
+    }
+  }
+}

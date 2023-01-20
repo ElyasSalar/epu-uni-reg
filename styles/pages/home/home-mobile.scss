@@ -1,0 +1,40 @@
+.home {
+
+  &__cover-content-logo {
+    height: 125px;
+  }
+
+  &__cover-content-title {
+    $font-size: 40;
+    font-size: toRem($font-size);
+    line-height: toRem($font-size * 1.5);
+  }
+  
+  &__cover-content-subtitle {
+    $font-size: 26;
+    font-size: toRem($font-size);
+    line-height: toRem($font-size * 1.5);
+  }
+  
+  &__cover-content-buttons {
+    margin-top: 40px;
+    gap: 20px;
+  }
+
+  &__cover-content-primary {
+    padding-inline: 11px;
+    padding-block: 9px;
+    height: 50px;
+  }
+
+  &__cover-content-secondary {
+    padding-inline: 11px;
+    padding-block: 0;
+    height: 50px;
+    gap: 5px;
+
+    &:hover &-icon, &:focus &-icon {
+      transform: translateX(-5px);
+    }
+  }
+}
