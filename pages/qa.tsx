@@ -4,7 +4,8 @@ import type { Locale } from "../types/locales"
 
 const Qa = () => {
   return (
-    <div style={{ backgroundColor: "blue", height: "100vh" }}>
+    <div style={{ backgroundColor: "blue", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "100px" }}>
+      🐈
     </div>
   )
 }
