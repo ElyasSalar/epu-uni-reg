@@ -8,19 +8,9 @@ type NavbarItems = {
 
 export const NAVBAR_ITEMS: Array<NavbarItems> = [
   {
-    id: ROUTES.qa.name,
-    href: ROUTES.qa.path,
-    translationKey: "nav_qa",
-  },
-  {
-    id: ROUTES.contactus.name,
-    href: ROUTES.contactus.path,
-    translationKey: "nav_contactus",
-  },
-  {
-    id: ROUTES.onlineRegistration.name,
-    href: ROUTES.onlineRegistration.path,
-    translationKey: "nav_onlineregistration",
+    id: ROUTES.home.name,
+    href: ROUTES.home.path,
+    translationKey: "nav_home",
   },
   {
     id: ROUTES.instructions.name,
@@ -28,8 +18,18 @@ export const NAVBAR_ITEMS: Array<NavbarItems> = [
     translationKey: "nav_instructions",
   },
   {
-    id: ROUTES.home.name,
-    href: ROUTES.home.path,
-    translationKey: "nav_home",
+    id: ROUTES.onlineRegistration.name,
+    href: ROUTES.onlineRegistration.path,
+    translationKey: "nav_onlineregistration",
+  },
+  {
+    id: ROUTES.contactus.name,
+    href: ROUTES.contactus.path,
+    translationKey: "nav_contactus",
+  },
+  {
+    id: ROUTES.qa.name,
+    href: ROUTES.qa.path,
+    translationKey: "nav_qa",
   },
 ]

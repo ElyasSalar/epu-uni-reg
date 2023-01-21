@@ -26,6 +26,11 @@ const NavBar = () => {
     setIsExpanded((prevIsExpanded) => !prevIsExpanded)
   }
 
+  const linkClickHandler = (): void => {
+    if (!isExpanded) return
+    setIsExpanded(false)
+  }
+
   useLayoutEffect(() => {
     const indicatorElement = linkIndicator.current as HTMLDivElement
     const activeLinkElement = activeLink.current as HTMLLIElement
@@ -50,9 +55,9 @@ const NavBar = () => {
       <button
         type="button"
         aria-expanded={isExpanded}
-        className="button button--secondary navbar__toggler"
-        aria-label="Toggle navigation"
         onClick={togglerClickHandler}
+        aria-label="Toggle navigation"
+        className="button button--secondary navbar__toggler"
       >
         <HamburgerIcon className="navbar__toggler-icon" />
       </button>
@@ -69,7 +74,7 @@ const NavBar = () => {
               "navbar__item--active": route === href
             })}
           >
-            <Link className="nav-link" href={href}>
+            <Link className="nav-link" href={href} onClick={linkClickHandler}>
               {t(translationKey)}
             </Link>
           </li>
