@@ -30,10 +30,10 @@
     color: white;
 
     &:hover, &:focus {
-      background-color: lighten(black, 10%);
+      background-color: rgba($color: black, $alpha: 0.1);
     }
     &:active {
-      background-color: darken(black, 10%);
+      background-color: rgba($color: black, $alpha: 0.2);
     }
     &:disabled {
       background-color: transparent;

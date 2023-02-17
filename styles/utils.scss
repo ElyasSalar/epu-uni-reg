@@ -34,27 +34,13 @@ $screen-sizes: (
 	}
 }
 
-@function opposite-direction($directions) {
-  $opposite-directions: ();
-  $direction-map: (
-    'top':    'bottom',
-    'right':  'left',
-    'bottom': 'top',
-    'left':   'right',
-    'center': 'center',
-    'ltr':    'rtl',
-    'rtl':    'ltr'
-  );
- 
-  @each $direction in $directions {
-    $direction: to-lower-case($direction);
-    
-    @if map-has-key($direction-map, $direction) { 
-      $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
-    } @else {
-      @warn "No opposite direction can be found for `#{$direction}`. Direction omitted.";
-    }
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    scale: 0.9;
   }
- 
-  @return $opposite-directions;
+  to {
+    opacity: 1;
+    scale: 1;
+  }
 }

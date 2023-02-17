@@ -26,6 +26,10 @@
   &__cover-content-logo {
     height: 200px;
     width: auto;
+
+    @include forScreen("tablet") {
+      height: 125px;
+    }
   }
 
   &__cover-content-title {
@@ -34,6 +38,12 @@
     font-weight: 700;
     font-size: toRem($font-size);
     line-height: toRem($font-size * 1.5);
+
+    @include forScreen("tablet") {
+      $font-size: 40;
+      font-size: toRem($font-size);
+      line-height: toRem($font-size * 1.5);
+    }
   }
   
   &__cover-content-subtitle {
@@ -42,6 +52,12 @@
     font-weight: 500;
     font-size: toRem($font-size);
     line-height: toRem($font-size * 1.5);
+
+    @include forScreen("tablet") {
+      $font-size: 26;
+      font-size: toRem($font-size);
+      line-height: toRem($font-size * 1.5);
+    }
   }
   
   &__cover-content-buttons {
@@ -52,11 +68,22 @@
     display: flex;
     border: none;
     gap: 40px;
+
+    @include forScreen("tablet") {
+      margin-top: 40px;
+      gap: 20px;
+    }
   }
 
   &__cover-content-primary {
     padding-inline: 22px;
     padding-block: 18px;
+
+    @include forScreen("tablet") {
+      padding-inline: 11px;
+      padding-block: 9px;
+      height: 50px;
+    }
   }
 
   &__cover-content-secondary {
@@ -68,6 +95,17 @@
 
     &:hover &-icon, &:focus &-icon {
       transform: translateX(-10px);
+    }
+
+    @include forScreen("tablet") {
+      padding-inline: 11px;
+      padding-block: 0;
+      height: 50px;
+      gap: 5px;
+
+      &:hover &-icon, &:focus &-icon {
+        transform: translateX(-5px);
+      }
     }
   }
 
@@ -84,8 +122,4 @@
       rotate: 0deg;
     }
   }
-}
-
-@media screen and (max-width: 768px) {
-  @import "./home-mobile.scss";
 }

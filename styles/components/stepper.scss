@@ -1,0 +1,36 @@
+.stepper {
+  display: flex;
+  gap: 20px;
+
+  &__element {
+    gap: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__element-label {
+    font-weight: 400;
+    text-align: start;
+    font-size: toRem(22);
+    color: $color-pink-swan;
+    transition: background-color 200ms ease-out;
+  }
+
+  &__element-label--active {
+    color: $color-primary;
+  }
+
+  &__element-filler {
+    height: 12px;
+    border-radius: 12px;
+    background-color: $color-pink-swan;
+    transition: background-color 200ms ease-out;
+  }
+  
+  &__element-filler--active {
+    background-color: $color-primary;
+  }
+}

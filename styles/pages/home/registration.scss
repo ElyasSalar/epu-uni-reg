@@ -1,0 +1,111 @@
+.registration {
+  $form-content-padding-inline: 40px;
+  
+  &__cover {
+    height: 200px;
+    padding: 20px;
+    display: flex;
+    font-size: 38px;
+    font-weight: 600;
+    align-items: flex-end;
+    box-sizing: border-box;
+    color: $color-secondary;
+    background-color: $color-primary;
+    background-image:
+      radial-gradient(250px 100px at 15% 40%, rgba($color: $color-cornflower-blue, $alpha: 80%), transparent),
+      radial-gradient(250px 100px at 35% 60%, rgba($color: $color-secondary, $alpha: 50%), transparent),
+      radial-gradient(250px 100px at 60% 40%, rgba($color: $color-cornflower-lilac, $alpha: 50%), transparent),
+      radial-gradient(250px 100px at 75% 40%, rgba($color: $color-prussian-blue, $alpha: 80%), transparent),
+      radial-gradient(250px 100px at 90% 65%, rgba($color: $color-secondary, $alpha: 60%), transparent);
+  }
+
+  &__form {
+    margin-inline: 5%;
+    text-align: center;
+    margin-block: 100px;
+  }
+
+  &__form-title {
+    font-size: toRem(55);
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  &__form-description {
+    font-size: toRem(30);
+    margin-bottom: 100px;
+  }
+
+  .stepper {
+    margin-bottom: 50px;
+  }
+
+  &__form-content {
+    overflow-x: hidden;
+    padding-block: 60px;
+    border-radius: 10px;
+    border: 2px solid $color-pink-swan;
+    padding-inline: $form-content-padding-inline;
+  }
+
+  &__form-content-row {
+    display: flex;
+    gap: 45px;
+
+    > * {
+      flex: 1 1 0px;
+      margin-bottom: 45px;
+    }
+  }
+
+  &__form-buttons {
+    gap: 25px;
+    display: flex;
+    justify-content: center;
+
+    button {
+      font-size: toRem(22);
+      aspect-ratio: 6 / 1;
+      font-weight: 600;
+      padding: 15px;
+      position: relative;
+    }
+
+  }
+
+  &__form-buttons-negative {
+    color: black;
+    border-radius: 6px;
+    border: 1px solid black;
+  }
+  
+  &__form-buttons-icon {
+    width: 1em;
+    height: 1em;
+    margin-block: auto;
+    position: absolute;
+  }
+
+  &__form-buttons-negative-icon {
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__form-buttons-positive-icon {
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  &__form-content-form {
+    display: none;
+    animation-name: fade-in;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+  }
+
+  &__form-content-form--active {
+    display: block;
+  }
+}

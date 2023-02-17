@@ -8,8 +8,8 @@ export const ROUTES = {
     path: "/instructions",
   },
   onlineRegistration: {
-    name: "online-registration",
-    path: "/online-registration",
+    name: "registration",
+    path: "/registration",
   },
   contactus: {
     name: "contactus",
