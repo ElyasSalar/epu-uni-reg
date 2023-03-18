@@ -1,0 +1,14 @@
+.progress-bar {
+  width: 100%;
+  border: none;
+  height: inherit;
+  background-color: transparent;
+  transition: width 200ms ease-in-out;
+
+  &__progress {
+    border: none;
+    height: inherit;
+    background-color: $color-primary;
+    transition: width 200ms ease-in-out;
+  }
+}

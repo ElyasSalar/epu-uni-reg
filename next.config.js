@@ -12,6 +12,10 @@ const nextConfig = {
     })
 
     return config
+  },
+  env: {
+    TELEGRAM_BOT_TOKEN: "6066946311:AAEb-KiQE2ZvhF9LW4AZjn6uA_tTiaQUQlM",
+    TELEGRAM_BOT_CHAT_ID: 1116530358,
   }
 }
 

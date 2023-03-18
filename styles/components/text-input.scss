@@ -1,8 +1,7 @@
 .text-input {
-  text-align: start;
-
   &__label {
     display: block;
+    text-align: start;
     font-size: toRem(14);
   }
 
@@ -33,6 +32,7 @@
   }
 
   &__handler:disabled {
+    background-color: rgba($color: $color-mischka, $alpha: 0.2);
     border-color: $color-mischka;
     color: $color-mischka;
     cursor: not-allowed;

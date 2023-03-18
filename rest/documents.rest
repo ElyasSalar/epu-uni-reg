@@ -1,0 +1,21 @@
+POST http://localhost:3000/api/documents HTTP/1.1
+content-type: application/json
+
+{
+  "message_id": 1,
+  "file_name": "node.jpg",
+  "file_size": 5000,
+  "mime_type": "image/jpeg",
+  "file_id": "BQADAgADGgADyIsGAAEaJwABFk0kZwI"
+}
+
+
+###
+
+
+DELETE  http://localhost:3000/api/documents HTTP/1.1
+content-type: application/json
+
+{
+  "file_id": 5
+}

@@ -2,5 +2,20 @@
   "cover_content_title": "زانکۆی پۆلیتەکنیکی هەولێر",
   "cover_content_subtitle": "سیستەمی خۆتۆمارکردن",
   "cover_content_primary_button": "خۆتۆمارکردن",
-  "cover_content_secondary_button": "ڕێنمایی وەربگرە"
+  "cover_content_secondary_button": "ڕێنمایی وەربگرە",
+  "describe_explanation_tag": "فۆڕمێکی سادە",
+  "describe_explanation_title": "خۆت تۆمار بکە لە فۆڕمەکە",
+  "describe_explanation_description": "فۆڕمەکە پێکهاتووە لە چوار بەش، زانیاری کەسی، زانیاری گشتی، و دووباشیتر تایبەت بە پەڕاوە پێویستەکانی خۆتۆمارکردن",
+  "describe_explanation_button_text": "زیاتر",
+  "describe_cards_personalinfo_title": "زانیاری کەسی",
+  "describe_cards_personalinfo_description": "ناوی تەواوت، کۆلێژەکەت، و بەشەکەت پڕبکەرەوە",
+  "describe_cards_generalinfo_title": "زانیاری گشتی",
+  "describe_cards_generalinfo_description": "پێکاهتووە لە نەتەوە و ژمارە موبایلەکەت",
+  "describe_cards_educationldocs_title": "پەڕاوی دەرچوونت",
+  "describe_cards_educationldocs_description": "پەڕاوی دەرچوونی هەندێکیتر لەخۆئەگرێت",
+  "describe_cards_personaldocs_title": "پەڕاوە کەسییەکان",
+  "describe_cards_personaldocs_description": "کارتی نیشتیمانی و پەڕاوە هاوشێوەکانی خۆت دائەنێیت",
+  "describe_features_register_text": "خوێنداکاران ئەتوانن بە شیوەیەکی ئاسان و بێ ماندووبوون خۆیان تۆمار بکەن",
+  "describe_features_easy_text": "ئاسان لە مامەڵەکردن لەگەڵ و پارێزراو",
+  "describe_features_location_text": "ئەتوانیت کۆلێژەکەی کە بۆی ئەچیت لەسەر نەخشە بدۆزیتەوە"
 }

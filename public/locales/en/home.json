@@ -2,5 +2,20 @@
   "cover_content_title": "erbil polytechnic university",
   "cover_content_subtitle": "online registration system",
   "cover_content_primary_button": "online registeration",
-  "cover_content_secondary_button": "get instructions"
+  "cover_content_secondary_button": "get instructions",
+  "describe_explanation_tag": "an easy form",
+  "describe_explanation_title": "Register  yourself in the form",
+  "describe_explanation_description": "The form consists of four sections, personal sections, general section and two uploading sections for files.",
+  "describe_explanation_button_text": "more",
+  "describe_cards_personalinfo_title": "Personal Information",
+  "describe_cards_personalinfo_description": "Fill out your full name, college and department.",
+  "describe_cards_generalinfo_title": "General Information",
+  "describe_cards_generalinfo_description": "your nationality and phone number.",
+  "describe_cards_educationldocs_title": "Educationl Documents",
+  "describe_cards_educationldocs_description": "Includes graduation and other files.",
+  "describe_cards_personaldocs_title": "Personal Documents",
+  "describe_cards_personaldocs_description": "Upload national residency card and other files.",
+  "describe_features_register_text": "Students can register themselves in the easiest way.",
+  "describe_features_easy_text": "Easy to understand secure and fast to use.",
+  "describe_features_location_text": "Now you can find the location of your college."
 }

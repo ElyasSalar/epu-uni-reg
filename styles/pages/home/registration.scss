@@ -41,7 +41,6 @@
   }
 
   &__form-content {
-    overflow-x: hidden;
     padding-block: 60px;
     border-radius: 10px;
     border: 2px solid $color-pink-swan;
@@ -62,15 +61,17 @@
     gap: 25px;
     display: flex;
     justify-content: center;
+  }
 
-    button {
-      font-size: toRem(22);
-      aspect-ratio: 6 / 1;
-      font-weight: 600;
-      padding: 15px;
-      position: relative;
-    }
-
+  &__form-buttons-positive, &__form-buttons-negative {
+    font-size: toRem(22);
+    aspect-ratio: 6 / 1;
+    font-weight: 600;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
   }
 
   &__form-buttons-negative {
@@ -80,22 +81,7 @@
   }
   
   &__form-buttons-icon {
-    width: 1em;
-    height: 1em;
-    margin-block: auto;
-    position: absolute;
-  }
-
-  &__form-buttons-negative-icon {
-    left: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  &__form-buttons-positive-icon {
-    right: 10%;
-    top: 50%;
-    transform: translateY(-50%) rotate(180deg);
+    height: 12px;
   }
 
   &__form-content-form {
@@ -107,5 +93,9 @@
 
   &__form-content-form--active {
     display: block;
+  }
+
+  .radio-group {
+    margin-bottom: 45px;
   }
 }

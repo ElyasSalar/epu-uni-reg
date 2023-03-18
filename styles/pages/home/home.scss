@@ -12,8 +12,12 @@
     background-repeat: no-repeat;
     background-image: linear-gradient(
         to bottom,
-        rgba($color-primary, 70%),
-        rgba(black, 70%)
+        rgba($color-primary, 40%),
+        rgba(black, 0)
+      ), linear-gradient(
+        to top,
+        rgba($color-primary, 100%),
+        transparent
       ),
       url("../../../assets/images/epu-cover.jpg");
   }
@@ -113,6 +117,105 @@
     transition: transform 300ms ease-in-out;
     width: toRem(30);
     rotate: 180deg;
+  }
+
+  &__describe {
+    background-color: $color-primary;
+    padding-block: 100px;
+  }
+  
+  &__describe-steps {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    padding-inline: 80px;
+    margin-bottom: 200px;
+    gap: 150px;
+  }
+
+  &__describe-steps-explanation-tag {
+    color: $color-secondary;
+    font-size: toRem(25);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  &__describe-steps-explanation-title {
+    font-size: toRem(40);
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+
+  &__describe-steps-explanation-description {
+    font-size: toRem(28);
+    margin-bottom: 50px;
+    font-weight: 400;
+  }
+
+  &__describe-steps-explanation-button {
+    font-size: toRem(20);
+    padding: 15px 60px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+
+  &__describe-steps-cards {
+    display: flex;
+    gap: 30px;
+  }
+  
+  &__describe-steps-card-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__describe-steps-card-vertical:first-child {
+    margin-top: 50px;
+  }
+
+  &__describe-steps-card-vertical:first-child &__describe-steps-card:first-child {
+    background-color: $color-mine-shaft;
+    color: white;
+  }
+
+  &__describe-steps-card {
+    max-width: 250px;
+    color: black;
+    font-weight: 300;
+    border-radius: 6px;
+    font-size: toRem(25);
+    padding: 60px 25px 25px;
+    background-color: white;
+  }
+  
+  &__describe-steps-card-title {
+    font-size: toRem(30);
+    margin-bottom: 12px;
+  }
+
+  &__describe-features {
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    gap: 100px;
+  }
+
+  &__describe-features-card {
+    text-align: center;
+  }
+
+  &__describe-features-card-icon {
+    color: $color-secondary;
+    margin-bottom: 20px;
+    height: 80px;
+    width: 80px;
+  }
+
+  &__describe-features-card-text {
+    font-size: toRem(30);
+    font-weight: 300;
+    width: 275px;
   }
 }
 

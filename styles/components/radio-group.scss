@@ -1,0 +1,31 @@
+.radio-group {
+  text-align: start;
+
+  &__label {
+    display: block;
+    font-size: toRem(14);
+  }
+
+  &__options {
+    gap: 1px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin-block: 5px;
+    border-radius: 6px;
+    border: 1px solid black;
+    background-color: black;
+  }
+
+  &__option {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 0;
+    background-color: white;
+  }
+
+  &__option--selected {
+    color: white;
+    background-color: $color-primary;
+  }
+}

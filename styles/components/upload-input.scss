@@ -1,0 +1,106 @@
+.upload-document {
+  text-align: start;
+
+  &__container {
+    gap: 15px;
+    height: 54px;
+    display: flex;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    margin-block: 5px;
+    border-radius: 6px;
+    padding-block: 10px;
+    font-size: toRem(15);
+    flex-direction: column;
+    box-sizing: border-box;
+    transition-duration: 200ms;
+    background-color: transparent;
+    border: 1px dashed $color-pink-swan;
+    transition-timing-function: ease-in-out;
+    transition-property: background-color, box-shadow, border-color;
+
+    &:hover, &:focus, &:active {
+      border-color: black;
+    }
+  }
+
+  &__container--has-document {
+    border: none;
+    background-color: white;
+    box-shadow: 0 3px 5px rgba($color: black, $alpha: 0.15);
+  }
+
+  &__container[aria-invalid="true"] {
+    border-color: rgba($color: $color-apricot, $alpha: 0.8);
+    box-shadow: 0 0 0 2px rgba($color: $color-apricot, $alpha: 0.1);
+  }
+
+
+  &__label {
+    display: block;
+    text-align: start;
+    font-size: toRem(14);
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__content {
+    display: flex;
+    text-align: start;
+    padding-inline: 15px;
+    justify-content: space-between;
+  }
+
+  &__title {
+    flex-basis: 70%;
+    max-width: 20ch;
+    font-size: toRem(16);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__buttons {
+    gap: 10px;
+    display: flex;
+  }
+  
+  &__button {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transition: width 200ms ease-in-out;
+  }
+  
+  &__button--invisible {
+    width: 0;
+    padding: 0;
+  }
+
+  &__progress {
+    height: 0;
+    transition-duration: 200ms;
+    transition-property: height, width;
+    transition-timing-function: ease-in-out;
+  }
+
+  &__progress--visible {
+    height: 2px;
+  }
+
+  &__helper {
+    font-size: toRem(12);
+    visibility: hidden;
+  }
+
+  &__helper[aria-invalid="true"] {
+    color: $color-apricot;
+  }
+
+  &__helper--visible {
+    visibility: visible;
+  }
+}

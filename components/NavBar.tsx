@@ -2,6 +2,7 @@ import Link from "next/link"
 import classNames from "classnames"
 import { useRouter } from "next/router"
 import { useTranslation } from "react-i18next"
+import useScroll from "../shared/hooks/useScroll"
 import { LOCALES } from "../shared/constants/locale"
 import { useLayoutEffect, useRef, useState } from "react"
 import { NAVBAR_ITEMS } from "../shared/constants/components/navbar"
@@ -15,6 +16,7 @@ import type { Locale } from "../types/locales"
 const NavBar = () => {
   const activeLink = useRef<HTMLLIElement>(null)
   const linkIndicator = useRef<HTMLDivElement>(null)
+  const scroll = useScroll()
 
   const { t } = useTranslation("common")
   const { locale, asPath, route } = useRouter()
@@ -47,7 +49,12 @@ const NavBar = () => {
   }, [route, locale])
   
   return (
-    <nav className="navbar">
+    <nav
+      className={classNames(
+        "navbar",
+        { "navbar--scrolled": scroll > 50 },
+      )}
+    >
       <Link className="navbar__language" href={asPath} locale={changeLocaleTo}>
         <LanguagesIcon className="navbar__language-icon" />
         {t("nav_language")}

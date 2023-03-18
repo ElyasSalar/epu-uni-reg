@@ -11,6 +11,15 @@
   padding-inline: 20px;
   box-sizing: border-box;
   justify-content: space-between;
+  transition-property: background-color, box-shadow;
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+
+  &--scrolled {
+    background-color: rgba($color: $color-primary, $alpha: 0.6);
+    box-shadow: 0 5px 10px rgba($color: $color-primary, $alpha: 0.5);
+    backdrop-filter: blur(5px);
+  }
 
   @include forScreen("tablet") {
     font-size: toRem(25);
