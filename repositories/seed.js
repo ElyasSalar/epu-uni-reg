@@ -1,14 +1,14 @@
 const { createConnection } = require("mysql2/promise");
 const { loadEnvConfig } = require("@next/env");
 const { readFileSync } = require("fs");
+const path = require("path");
 
-
-const rootDir = __dirname.split("\\").slice(0, -1).join("\\");
+const rootDir = path.resolve(__dirname, "../");
 loadEnvConfig(rootDir);
-const createDepartmentsTableQuery = readFileSync(rootDir + "\\queries\\departments-table.sql", "utf8").toString();
-const createDocumentsTableQuery = readFileSync(rootDir + "\\queries\\documents-table.sql", "utf8").toString();
-const createStudentsTableQuery = readFileSync(rootDir + "\\queries\\students-table.sql", "utf8").toString();
-const departmentsContent = readFileSync(__dirname + "\\departments.json", "utf8")
+const createDepartmentsTableQuery = readFileSync(path.resolve(__dirname, "../queries/departments-table.sql"), "utf8").toString();
+const createDocumentsTableQuery = readFileSync(path.resolve(__dirname, "../queries/documents-table.sql"), "utf8").toString();
+const createStudentsTableQuery = readFileSync(path.resolve(__dirname, "../queries/students-table.sql"), "utf8").toString();
+const departmentsContent = readFileSync(__dirname + "/departments.json", "utf8")
 
 const departments = JSON.parse(departmentsContent)
 
