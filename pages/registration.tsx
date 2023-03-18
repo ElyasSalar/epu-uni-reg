@@ -567,9 +567,3 @@ export async function getStaticProps({ locale }: { locale: Locale }) {
     },
   }
 }
-
-// form_uploader_nationalitycard_label
-// form_uploader_informationcard_label
-// form_uploader_rationcard_label
-// form_uploader_naitonalitycertificate_label
-// form_uploader_identitycard_label

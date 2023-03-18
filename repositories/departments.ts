@@ -49,7 +49,7 @@ export default class DepartmentsRepository {
 
     const [rows] = await connection.query<GetDepartmentsResult[]>(`
       SELECT
-        id,
+        MAX(id),
         code,
         collageCode,
         ${collage} as collage,
