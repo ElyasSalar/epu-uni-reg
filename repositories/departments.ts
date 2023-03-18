@@ -49,9 +49,9 @@ export default class DepartmentsRepository {
 
     const [rows] = await connection.query<GetDepartmentsResult[]>(`
       SELECT
-        MAX(id),
+        id,
         code,
-        collageCode,
+        MAX(collageCode),
         ${collage} as collage,
         ${department} as department
       FROM departments
