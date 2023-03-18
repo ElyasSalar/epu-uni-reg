@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS students (
   firstName VARCHAR(255) NOT NULL,
   secondName VARCHAR(255) NOT NULL,
   thirdName VARCHAR(255) NOT NULL,
-  departmentId INT NOT NULL,
+  departmentId VARCHAR(32) NOT NULL,
   serialNumber INT UNIQUE NOT NULL,
   nationality VARCHAR(255) NOT NULL,
   language VARCHAR(255) NOT NULL,

@@ -5,7 +5,7 @@ import type { AxiosResponse } from "axios"
 
 type GetDepartmentsParams = {
   locale: string
-  collageCode?: string
+  collageId?: string
   departmentId?: string
 }
 

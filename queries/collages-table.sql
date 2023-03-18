@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS collages (
+  id VARCHAR(32) PRIMARY KEY,
+  englishCollageName VARCHAR(255) NOT NULL,
+  kurdishCollageName VARCHAR(255) NOT NULL
+)

@@ -32,9 +32,13 @@ import {
   personalDocumentsFormSchema,
   personalFormSchema,
 } from "../lib/registration"
-import DepartmentsController from "../repositories/departments"
+import CollagesRepository from "../repositories/collages"
 import { LOCALE_DIR } from "../shared/constants/locale"
 import { getDepartments } from "../api/departments"
+import { ROUTES } from "../shared/constants/routes"
+import { registerStudent } from "../api/students"
+import UploadInput from "../components/UploadInput"
+import RadioGroup from "../components/RadioGroup"
 import TextInput from "../components/TextInput"
 import Dropdown from "../components/Dropdown"
 import Stepper from "../components/Stepper"
@@ -47,15 +51,12 @@ import ChevronRight from "../assets/icons/chevron-right.svg"
 import type { Locale } from "../types/locales"
 import type { RegistrationFormData, RegistrationStep1, RegistrationStep2, RegistrationStep3, RegistrationStep4 } from "../types/registration"
 import type { Department } from "../types/departments"
-import RadioGroup from "../components/RadioGroup"
-import UploadInput from "../components/UploadInput"
-import { ROUTES } from "../shared/constants/routes"
-import { registerStudent } from "../api/students"
+import type { Collage } from "../types/collage"
 
 const Registration = ({
   collages
 }: {
-  collages: Department[]
+  collages: Collage[]
 }) => {
   const { locale, replace } = useRouter()
   const dir = LOCALE_DIR[locale]
@@ -70,10 +71,10 @@ const Registration = ({
 
   const preparedCollageOptions = useMemo(
     () => collages.map(({
-      collageCode,
+      id,
       collage,
     }) => ({
-      id: collageCode,
+      id,
       text: collage,
     }))
     ,[collages]
@@ -128,7 +129,7 @@ const Registration = ({
     if (!selectedCollage.id) return
 
     const departments = await getDepartments({
-      collageCode: selectedCollage.id,
+      collageId: selectedCollage.id,
       locale,
     })
 
@@ -558,7 +559,7 @@ const Registration = ({
 export default Registration
 
 export async function getStaticProps({ locale }: { locale: Locale }) {
-  const collages = await DepartmentsController.getCollages({ locale })
+  const collages = await CollagesRepository.getCollages({ locale })
   
   return {
     props: {

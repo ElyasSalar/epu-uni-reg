@@ -7,12 +7,12 @@ import { ApiError } from "../config/apiError"
 
 export default class DepartmentsController {
   static async getDepartments(request: NextApiRequest, response: NextApiResponse<Department[]>) {
-    const { locale, collageCode, departmentId } = request.query
+    const { locale, collageId, departmentId } = request.query
 
     try {
       const departments = await DepartmentsRepository.getDepartments({
         departmentId: departmentId as string,
-        collageCode: collageCode as string,
+        collageId: collageId as string,
         locale: locale as Locale,
       })
       
