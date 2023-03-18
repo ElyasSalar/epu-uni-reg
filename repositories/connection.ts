@@ -12,9 +12,11 @@ export default class DbConnection {
     const port = Number(process.env.DB_PORT) as number;
     const user = process.env.DB_USER as string;
     const host = process.env.DB_HOST as string;
+    const password = process.env.DB_PASSWORD as string;
 
     this.connection = await createConnection({
       database: databaseName,
+      password,
       host,
       user,
       port,

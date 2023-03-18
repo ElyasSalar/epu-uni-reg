@@ -13,6 +13,7 @@ const departmentsContent = readFileSync(__dirname + "/departments.json", "utf8")
 const departments = JSON.parse(departmentsContent)
 
 const databaseName = process.env.DB_NAME;
+const password = process.env.DB_PASSWORD;
 const user = process.env.DB_USER;
 const port = process.env.DB_PORT;
 const host = process.env.DB_HOST;
@@ -20,6 +21,7 @@ const host = process.env.DB_HOST;
 async function seed() {
   const connection = await createConnection({
     database: "",
+    password,
     host,
     user,
     port,
