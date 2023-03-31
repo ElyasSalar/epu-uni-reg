@@ -1,0 +1,75 @@
+.footer {
+  background-color: $color-primary;
+  padding-inline: 20px;
+  padding-block: 120px;
+  text-align: center;
+
+  @include forScreen("tablet") {
+    &__links-empty {
+      display: none;
+    }
+  }
+  
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    margin-inline: 40px;
+  }
+  
+  &__links-pages {
+    color: #ffffffc3;
+    font-size: toRem(20);
+    font-weight: 400;
+    display: flex;
+    gap: 35px;
+
+    @include forScreen("tablet") {
+      flex-direction: column;
+      font-size: toRem(24);
+      text-align: start;
+      gap: 20px;
+    }
+  }
+
+  &__links-pages a:hover {
+    color: white;
+  }
+
+  &__links-accounts {
+    color: #ffffffc3;
+    display: flex;
+    gap: 20px;
+
+    @include forScreen("tablet") {
+      align-self: flex-end;
+    }
+  }
+
+  &__links-accounts a:hover {
+    color: white;
+  }
+
+  &__links-accounts-icon {
+    width: 20px;
+  }
+
+  &__divider {
+    background-color: #ffffff7a;
+    margin-bottom: 40px;
+    height: 1px;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 40px;
+    color: #ffffffc3;
+    font-size: toRem(20);
+    
+    @include forScreen("tablet") {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}

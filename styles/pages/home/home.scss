@@ -131,6 +131,12 @@
     padding-inline: 80px;
     margin-bottom: 200px;
     gap: 150px;
+
+    @include forScreen("tablet") {
+      flex-direction: column;
+      padding-inline: 20px;
+      gap: 75px;
+    }
   }
 
   &__describe-steps-explanation-tag {
@@ -157,6 +163,11 @@
     padding: 15px 60px;
     border-radius: 10px;
     font-weight: 600;
+    
+    @include forScreen("tablet") {
+      font-size: toRem(32);
+      padding: 10px 40px;
+    }
   }
 
   &__describe-steps-cards {
@@ -199,6 +210,12 @@
     justify-content: space-evenly;
     color: white;
     gap: 100px;
+
+    @include forScreen("tablet") {
+      flex-direction: column;
+      padding-inline: 20px;
+      gap: 75px;
+    }
   }
 
   &__describe-features-card {
@@ -214,8 +231,94 @@
 
   &__describe-features-card-text {
     font-size: toRem(30);
+    margin-inline: auto;
     font-weight: 300;
     width: 275px;
+  }
+
+
+  &__mockup {
+    background-image: url("../../../assets/images/website-mockup.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: contain;
+    padding-inline: 80px;
+    padding-block: 90px 0;
+    height: 75vh;
+    
+    @include forScreen("tablet") {
+      background-position: bottom left;
+      padding-inline: 40px;
+      padding-block: 40px 0;
+      height: 50vh;
+    }
+  }
+  
+  &__mockup-content {
+    margin-inline-start: auto;
+    text-align: end;
+    width: 50%;
+
+    @include forScreen("tablet") {
+      width: 100%;
+    }
+  }
+  
+  &__mockup-content-title {
+    font-size: toRem(40);
+    margin-bottom: 30px;
+    font-weight: 700;
+    
+    @include forScreen("tablet") {
+      margin-bottom: 15px;
+    }
+  }
+  
+  &__mockup-content-description {
+    margin-inline-start: auto;
+    font-size: toRem(32);
+    font-weight: 400;
+    width: 75%;
+  }
+
+  &__location {
+    background-color: $color-primary;
+  }
+  
+  &__location-content {
+    padding-block: 150px;
+    margin-inline: auto;
+    text-align: center;
+    color: white;
+    width: 75%;
+    
+    @include forScreen("tablet") {
+      padding-block: 100px;
+      width: 90%;
+    }
+  }
+  
+  &__location-content-title {
+    color: $color_secondary;
+    font-size: toRem(40);
+    margin-bottom: 50px;
+
+    @include forScreen("tablet") {
+      margin-bottom: 25px;
+    }
+  }
+  
+  &__location-content-description {
+    font-size: toRem(32);
+    font-weight: 400;
+  }
+
+  &__location-map {
+    height: 600px;
+
+    @include forScreen("tablet") {
+      height: 400px;
+    }
   }
 }
 
