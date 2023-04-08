@@ -1,9 +1,9 @@
 import classNames from "classnames"
 import ProgressBar from "./ProgressBar"
 import { useState, useRef } from "react"
-import TelegramApi from "../api/telegram"
+import TelegramApi from "../endpoints/telegram"
 import { useTranslation } from "next-i18next"
-import { addDocument, deleteDocumentById } from "../api/documents"
+import { addDocument, deleteDocumentById } from "../endpoints/documents"
 
 import CrossIcon from "../assets/icons/cross.svg"
 import UploadIcon from "../assets/icons/upload.svg"
