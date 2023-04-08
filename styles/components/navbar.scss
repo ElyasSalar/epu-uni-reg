@@ -23,6 +23,7 @@
 
   @include forScreen("tablet") {
     font-size: toRem(25);
+    padding-block: 20px;
   }
 
   &__language {

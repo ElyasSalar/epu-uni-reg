@@ -23,6 +23,11 @@ export const NAVBAR_ITEMS: Array<NavbarItems> = [
     translationKey: "nav_instructions",
   },
   {
+    id: ROUTES.locations.name,
+    href: ROUTES.locations.path,
+    translationKey: "nav_locations",
+  },
+  {
     id: ROUTES.qa.name,
     href: ROUTES.qa.path,
     translationKey: "nav_qa",

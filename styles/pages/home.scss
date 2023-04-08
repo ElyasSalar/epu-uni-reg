@@ -19,7 +19,7 @@
         rgba($color-primary, 100%),
         transparent
       ),
-      url("../../../assets/images/epu-cover.jpg");
+      url("../../assets/images/epu-cover.jpg");
   }
 
   &__cover-content {
@@ -82,6 +82,8 @@
   &__cover-content-primary {
     padding-inline: 22px;
     padding-block: 18px;
+    align-items: center;
+    display: flex;
 
     @include forScreen("tablet") {
       padding-inline: 11px;
@@ -238,7 +240,7 @@
 
 
   &__mockup {
-    background-image: url("../../../assets/images/website-mockup.png");
+    background-image: url("../../assets/images/website-mockup.png");
     background-repeat: no-repeat;
     background-position: top left;
     background-size: contain;

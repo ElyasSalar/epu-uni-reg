@@ -1,0 +1,61 @@
+.map-card {
+  gap: 40px;
+  height: 250px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 20px;
+  justify-content: space-between;
+  border: 1px solid $color-pink-swan;
+
+  &__image-container {
+    height: 100%;
+    width: 230px;
+    flex-shrink: 0;
+    background-color: $color-chambray;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding-block: 20px;
+    padding-inline-end: 20px;
+  }
+
+  &__content {
+    flex-grow: 1;
+    text-align: start;
+  }
+
+  &__content-title {
+    display: block;
+    font-weight: 600;
+    font-size: toRem(28);
+    margin-block-end: 20px;
+    text-decoration: underline;
+  }
+
+  &__content-icon {
+    width: 20px;
+    color: $color-brandy;
+    margin-inline-end: 16px;
+  }
+
+  &__content-location {
+    font-size: toRem(24);
+    display: inline-block;
+  }
+
+  &__map {
+    width: 200px;
+    height: 100%;
+    border-radius: 10px;
+  }
+}

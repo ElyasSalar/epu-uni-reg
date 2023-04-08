@@ -1,0 +1,58 @@
+.locations {
+
+  &__cover {
+    width: 100%;
+    height: 550px;
+    margin-block-end: 90px;
+    background-color: white;
+  }
+  
+  &__cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+  }
+
+  &__maps {
+    text-align: center;
+    margin-block-end: 120px;
+  }
+  
+  &__maps-title {
+    font-weight: 600;
+    font-size: toRem(45);
+    margin-block-end: 100px;
+  }
+
+  &__maps-container {
+    margin-inline: auto;
+    width: 80%;
+  }
+
+  &__maps-divider {
+    gap: 70px;
+    display: flex;
+    align-items: center;
+    margin-block: 100px;
+    justify-content: center;
+  }
+
+  &__maps-divider-line {
+    width: 100%;
+    height: 1px;
+    background-color: $color-pink-swan;
+  }
+
+  &__maps-divider-text {
+    color: black;
+    font-weight: 600;
+    font-size: toRem(36);
+  }
+
+  .map-card {
+    margin-block-end: 50px;
+  }
+}

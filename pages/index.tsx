@@ -2,9 +2,6 @@ import Link from "next/link"
 import Image from "next/image"
 import Layout from "../components/Layout"
 import {
-  useRouter
-} from "next/router"
-import {
   useTranslation
 } from "next-i18next"
 import {
@@ -23,8 +20,9 @@ import {
   HOME_DESCRIBE_FEATURES,
 } from "../shared/constants/home/home"
 import {
-  EPU_COLLAGES_LAT_AND_LNG,
+  EPU_COLLAGES_AND_INSTITUTES_LAT_AND_LNG,
   ERBIL_TECHNICAL_ENGINEERING_COLLAGE,
+  LIBRARIES_MAP_SCRIPT_OPTIONS,
 } from "../shared/constants/map"
 
 import RightArrowIcon from "../assets/icons/right-arrow.svg"
@@ -34,21 +32,12 @@ import type { Locale } from "../types/locales"
 import type { NextPage } from "next"
 
 const Home: NextPage = () => {
-  const router = useRouter()
   const { t } = useTranslation(["home"])
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string,
-    libraries: ["places"],
+    libraries: LIBRARIES_MAP_SCRIPT_OPTIONS,
   })
-
-  const primaryClickHandler = () => {
-    router.replace("#")
-  }
-
-  const secondaryClickHandler = () => {
-    router.replace("#")
-  }
 
   return (
     <Layout>
@@ -66,13 +55,13 @@ const Home: NextPage = () => {
             <h1 className="home__cover-content-title">{t("cover_content_title")}</h1>
             <h4 className="home__cover-content-subtitle">{t("cover_content_subtitle")}</h4>
             <div className="home__cover-content-buttons">
-              <button className="home__cover-content-primary button button--primary" onClick={primaryClickHandler}>
+              <Link href={ROUTES.onlineRegistration.path} className="home__cover-content-primary button button--primary">
                 {t("cover_content_primary_button")}
-              </button>
-              <button className="home__cover-content-secondary button button--secondary" onClick={secondaryClickHandler}>
+              </Link>
+              <Link href={ROUTES.instructions.path} className="home__cover-content-secondary button button--secondary">
                 {t("cover_content_secondary_button")}
                 <RightArrowIcon className="home__cover-content-secondary-icon" />
-              </button>
+              </Link>
             </div>
           </center>
         </section>
@@ -142,9 +131,9 @@ const Home: NextPage = () => {
                 zoom={15}
                 mapTypeId={google.maps.MapTypeId.ROADMAP}
                 mapContainerStyle={{ width: "100%", height: "100%" }}
-                center={EPU_COLLAGES_LAT_AND_LNG[ERBIL_TECHNICAL_ENGINEERING_COLLAGE]}
+                center={EPU_COLLAGES_AND_INSTITUTES_LAT_AND_LNG[ERBIL_TECHNICAL_ENGINEERING_COLLAGE]}
               >
-                <MarkerF position={EPU_COLLAGES_LAT_AND_LNG[ERBIL_TECHNICAL_ENGINEERING_COLLAGE]} />
+                <MarkerF position={EPU_COLLAGES_AND_INSTITUTES_LAT_AND_LNG[ERBIL_TECHNICAL_ENGINEERING_COLLAGE]} />
               </GoogleMap>
             )}
           </div>

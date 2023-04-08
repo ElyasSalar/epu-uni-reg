@@ -11,6 +11,10 @@ export const ROUTES = {
     name: "registration",
     path: "/registration",
   },
+  locations: {
+    name: "locations",
+    path: "/locations",
+  },
   contactus: {
     name: "contactus",
     path: "/contactus",

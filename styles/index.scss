@@ -15,7 +15,9 @@
 @import "./components/dropdown.scss";
 @import "./components/radio-group.scss";
 @import "./components/footer.scss";
+@import "./components/map-card.scss";
 
 // pages
-@import "./pages/home/home.scss";
-@import "./pages/home/registration.scss";
+@import "./pages/home.scss";
+@import "./pages/registration.scss";
+@import "./pages/locations.scss";
