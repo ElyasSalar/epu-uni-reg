@@ -7,6 +7,10 @@
   &__label {
     display: block;
     font-size: toRem(14);
+
+    @include forScreen("tablet") {
+      font-size: toRem(24);
+    }
   }
 
   &__select {
@@ -20,6 +24,7 @@
     padding-block: 14px;
     align-items: center;
     outline: transparent;
+    font-size: toRem(16);
     padding-inline: 20px;
     font-family: inherit;
     height: $select-height;
@@ -30,6 +35,10 @@
     justify-content: space-between;
     transition-timing-function: ease-in-out;
     transition-property: border-color, box-shadow;
+
+    @include forScreen("tablet") {
+      font-size: toRem(24);
+    }
   }
 
   &__select:focus, &__select:hover {
@@ -64,6 +73,7 @@
   }
 
   &__wrapper {
+    z-index: 1;
     width: 100%;
     max-height: 0;
     overflow-y: auto;
@@ -93,9 +103,14 @@
     text-align: start;
     padding-block: 10px;
     padding-inline: 20px;
+    font-size: toRem(16);
     flex-direction: column;
     background-color: inherit;
     transition: background-color 100ms ease-in-out;
+
+    @include forScreen("tablet") {
+      font-size: toRem(24);
+    }
   }
 
   &__option:hover {
@@ -106,6 +121,10 @@
   &__helper {
     font-size: toRem(12);
     visibility: hidden;
+
+    @include forScreen("tablet") {
+      font-size: toRem(16);
+    }
   }
 
   &__helper[aria-invalid="true"] {

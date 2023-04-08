@@ -2,6 +2,10 @@
   display: flex;
   gap: 20px;
 
+  @include forScreen("tablet") {
+    gap: 5px;
+  }
+
   &__element {
     gap: 24px;
     flex-grow: 1;
@@ -9,6 +13,10 @@
     flex-basis: 100%;
     flex-direction: column;
     justify-content: space-between;
+    
+    @include forScreen("tablet") {
+      gap: 4px;
+    }
   }
 
   &__element-label {
@@ -18,6 +26,10 @@
     color: $color-pink-swan;
     text-transform: capitalize;
     transition: background-color 200ms ease-out;
+
+    @include forScreen("tablet") {
+      font-size: toRem(15);
+    }
   }
 
   &__element-label--active {
@@ -29,6 +41,10 @@
     border-radius: 12px;
     background-color: $color-pink-swan;
     transition: background-color 200ms ease-out;
+
+    @include forScreen("tablet") {
+      height: 6px;
+    }
   }
   
   &__element-filler--active {

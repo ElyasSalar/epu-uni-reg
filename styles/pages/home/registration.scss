@@ -1,5 +1,4 @@
 .registration {
-  $form-content-padding-inline: 40px;
   
   &__cover {
     height: 200px;
@@ -44,7 +43,12 @@
     padding-block: 60px;
     border-radius: 10px;
     border: 2px solid $color-pink-swan;
-    padding-inline: $form-content-padding-inline;
+    padding-inline: 40px;
+
+    @include forScreen("tablet") {
+      padding-inline: 10px;
+      padding-block: 30px;
+    }
   }
 
   &__form-content-row {
@@ -55,12 +59,25 @@
       flex: 1 1 0px;
       margin-bottom: 45px;
     }
+
+    @include forScreen("tablet") {
+      flex-direction: column;
+      gap: 10px;
+
+      > * {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__form-buttons {
     gap: 25px;
     display: flex;
     justify-content: center;
+
+    @include forScreen("tablet") {
+      gap: 10px;
+    }
   }
 
   &__form-buttons-positive, &__form-buttons-negative {
@@ -72,6 +89,13 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
+
+    @include forScreen("tablet") {
+      margin-block-start: 20px;
+      padding: 10px;
+      flex-grow: 1;
+      gap: 10px;
+    }
   }
 
   &__form-buttons-negative {

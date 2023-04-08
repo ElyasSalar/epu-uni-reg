@@ -24,6 +24,7 @@ const CustomInput = forwardRef((props: CustomInputProps, ref: LegacyRef<HTMLInpu
         id={props.id}
         name={props.name}
         type={props.type}
+        autoComplete="off"
         onBlur={props.onBlur}
         onFocus={props.onFocus}
         onChange={props.onChange}

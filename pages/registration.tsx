@@ -192,7 +192,6 @@ const Registration = ({
 
   return (
     <Layout>
-
       <div className="registration">
         <section className="registration__cover">{t("cover_title")}</section>
         <section className="registration__form">

@@ -3,6 +3,10 @@
     display: block;
     text-align: start;
     font-size: toRem(14);
+
+    @include forScreen("tablet") {
+      font-size: toRem(24);
+    }
   }
 
   &__handler {
@@ -56,11 +60,21 @@
   &__handler--large {
     height: 54px;
     font-size: toRem(16);
+
+    @include forScreen("tablet") {
+      font-size: toRem(24);
+      height: 48px;
+    }
   }
 
   &__helper {
     font-size: toRem(12);
     visibility: hidden;
+
+    @include forScreen("tablet") {
+      font-size: toRem(16);
+      text-align: start;
+    }
   }
 
   &__helper[aria-invalid="true"] {
