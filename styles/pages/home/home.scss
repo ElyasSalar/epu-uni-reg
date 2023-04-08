@@ -327,5 +327,15 @@
     &__cover-content-secondary-icon {
       rotate: 0deg;
     }
+
+    &__mockup-content {
+      margin-inline-end: auto;
+      margin-inline-start: 0;
+      text-align: start;
+    }
+
+    &__mockup-content-description {
+      margin-inline-start: 0;
+    }
   }
 }

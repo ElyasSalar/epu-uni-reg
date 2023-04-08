@@ -40,7 +40,7 @@ const port = process.env.DB_PORT;
 const host = process.env.DB_HOST;
 
 function queryBuilderFromArrayObject(array, tableName) {
-  let query = `INSERT INTO ${tableName} (`;
+  let query = `INSERT IGNORE INTO ${tableName} (`;
   query += Object.keys(array[0]).join(", ");
   query += ") VALUES ";
 
@@ -63,15 +63,6 @@ async function seed() {
   })
 
   try {
-    // let addDepartmentQuery = "INSERT INTO departments (";
-    // addDepartmentQuery += Object.keys(departments[0]).join(", ");
-    // addDepartmentQuery += ") VALUES ";
-
-    // departments.forEach((department) => {
-    //   addDepartmentQuery += "(";
-    //   addDepartmentQuery += Object.values(department).map(value => `"${value}"`).join(", ");
-    //   addDepartmentQuery += "),";
-    // })
     const addDepartmentsQuery = queryBuilderFromArrayObject(departments, "departments")
     const addCollagesQuery = queryBuilderFromArrayObject(collages, "collages")
 
