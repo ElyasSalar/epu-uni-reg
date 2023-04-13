@@ -1,3 +1,5 @@
+import Layout from "../components/Layout"
+import Head from "next/head"
 import {
   useMemo,
   useRef,
@@ -52,7 +54,6 @@ import type { Locale } from "../types/locales"
 import type { RegistrationFormData, RegistrationStep1, RegistrationStep2, RegistrationStep3, RegistrationStep4 } from "../types/registration"
 import type { Department } from "../types/departments"
 import type { Collage } from "../types/collage"
-import Layout from "../components/Layout"
 
 const Registration = ({
   collages
@@ -192,6 +193,9 @@ const Registration = ({
 
   return (
     <Layout>
+      <Head>
+        <title>Registrations</title>
+      </Head>
       <div className="registration">
         <section className="registration__cover">{t("cover_title")}</section>
         <section className="registration__form">

@@ -1,3 +1,4 @@
+import Head from "next/head"
 import Image from "next/image"
 import { useMemo } from "react"
 import Layout from "../components/Layout"
@@ -27,6 +28,9 @@ const QA: NextPage = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Q and A</title>
+      </Head>
       <div className="qa">
         <section className="qa__cover">
           <Image

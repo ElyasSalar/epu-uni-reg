@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Head from "next/head"
 import Image from "next/image"
 import Layout from "../components/Layout"
 import {
@@ -41,6 +42,9 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Home</title>
+      </Head>
       <div className="home">
         <section className="home__cover">
           <center className="home__cover-content">

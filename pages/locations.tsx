@@ -1,3 +1,4 @@
+import Head from "next/head"
 import Image from "next/image"
 import Layout from "../components/Layout"
 import {
@@ -13,18 +14,21 @@ import {
   EPU_COLLAGES_AND_INSTITUTES_LAT_AND_LNG,
   EPU_INSTITUTES,
 } from "../shared/constants/map"
+import { redirecToMap } from "../lib/map"
 
 import mapCoverImage from "../assets/images/map-cover.jpg"
 
 import type { Locale } from "../types/locales"
 import type { NextPage } from "next"
-import { redirecToMap } from "../lib/map"
 
 const Locations: NextPage = () => {
   const { t } = useTranslation(["locations"])
 
   return (
     <Layout>
+      <Head>
+        <title>Locations</title>
+      </Head>
       <div className="locations">
         <section className="locations__cover">
           <Image

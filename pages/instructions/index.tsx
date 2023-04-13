@@ -1,4 +1,6 @@
+import Head from "next/head"
 import Image from "next/image"
+import { useMemo } from "react"
 import Layout from "../../components/Layout"
 import InstructionsCards from "../../components/InstructionsCard"
 import {
@@ -15,7 +17,6 @@ import instructionsCoverImage from "../../assets/images/instructions-cover.jpg"
 
 import type { Locale } from "../../types/locales"
 import type { NextPage } from "next"
-import { useMemo } from "react"
 
 const Instructions: NextPage = () => {
   const { t } = useTranslation(["instructions"])
@@ -28,6 +29,9 @@ const Instructions: NextPage = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Instructions</title>
+      </Head>
       <div className="instructions">
         <section className="instructions__cover">
           <Image
