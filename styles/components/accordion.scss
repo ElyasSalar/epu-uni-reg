@@ -1,0 +1,78 @@
+.accordion {
+
+  &__item-header {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    padding-block: 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid $color-pink-swan;
+
+    @include forScreen("tablet") {
+      padding-block: 15px;
+    }
+  }
+
+  &__item:last-child &__item-header {
+    border-bottom: none;
+  }
+
+  &__item-title {
+    font-size: toRem(28);
+    font-weight: 600;
+  }
+
+  &__item-button {
+    background-color: transparent;
+    border: 1px solid $color-pink-swan;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(90deg);
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+    transition-property: transform, background-color;
+
+    @include forScreen("tablet") {
+      height: 35px;
+      width: 35px;
+    }
+  }
+
+  &__item-button--up {
+    transform: rotate(270deg);
+    background-color: $color-secondary;
+  }
+
+  &__item-description {
+    max-height: 0;
+    text-align: start;
+    overflow-y: hidden;
+    font-size: toRem(20);
+    padding-inline: 10px;
+    background-color: $color-alabaster;
+    border-inline-start: 7px solid $color-secondary;
+    
+    transition-property: padding-block, max-height;
+    transition-timing-function: ease-out;
+    transition-duration: 300ms;
+
+    @include forScreen("tablet") {
+      font-size: toRem(24);
+    }
+  }
+  
+  &__item-description--shown {
+    border-block: 1px solid $color-pink-swan;
+    padding-block: 40px;
+    max-height: 200px;
+    
+    @include forScreen("tablet") {
+      padding-block: 20px;
+      max-height: 150px;
+    }
+  }
+}
