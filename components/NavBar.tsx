@@ -76,7 +76,7 @@ const NavBar = () => {
         {NAVBAR_ITEMS.map(({ id, href, translationKey }) => (
           <li
             key={id}
-            ref={route === href ? activeLink : null}
+            ref={route.includes(href) ? activeLink : null}
             className={classNames("navbar__item", {
               "navbar__item--active": route === href
             })}

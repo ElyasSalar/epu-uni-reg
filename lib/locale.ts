@@ -1,4 +1,4 @@
-import type { Locale } from "../types/locales"
+import { LOCALES } from "../shared/constants/locale"
 
 const MAP_LATIN_TO_ARABIC: {
   [key: string]: string
@@ -30,9 +30,9 @@ const MAP_ARABIC_TO_LATIN: {
   "\u0669": "\u0039",
 }
 
-export const translateNumber = (number: number | string, locale: Locale): string => {  
+export const translateNumber = (number: number | string, locale: string): string => {
   return number.toString().split("").map((char: string): string => {
-    if (locale === "ckb") {
+    if (locale === LOCALES.CKB) {
       return MAP_LATIN_TO_ARABIC[char] || char
     }
     return MAP_ARABIC_TO_LATIN[char] || char

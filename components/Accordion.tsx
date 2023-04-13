@@ -15,14 +15,12 @@ interface AccordionProps {
 const Accordion: FC<AccordionProps> = ({
   accordion
 }) => {
-  const [selectedAccordionIndex, setSelectedAccordionIndex] = useState<number | null>(null)
+  const [selectedAccordionIndex, setSelectedAccordionIndex] = useState<number>(0)
 
   const handleAccordionClick = (index: number) => () => {
-    if (selectedAccordionIndex === index) {
-      setSelectedAccordionIndex(null)
-    } else {
-      setSelectedAccordionIndex(index)
-    }
+    if (selectedAccordionIndex === index) return
+
+    setSelectedAccordionIndex(index)
   }
 
   return (

@@ -1,0 +1,24 @@
+.instruction-card {
+  text-align: start;
+
+  &__title {
+    font-weight: 600;
+    font-size: toRem(30);
+    display: inline-block;
+    color: $color-chambray;
+    margin-block-end: 15px;
+    text-decoration: underline;
+
+    @include forScreen("tablet") {
+      font-size: toRem(40);
+    }
+  }
+
+  &__description {
+    font-size: toRem(25);
+
+    @include forScreen("tablet") {
+      font-size: toRem(32);
+    }
+  }
+}

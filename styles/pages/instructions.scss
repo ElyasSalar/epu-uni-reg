@@ -1,4 +1,9 @@
-.qa {
+.instructions {
+
+  a {
+    text-decoration: underline;
+    color: $color-chambray;
+  }
 
   &__cover {
     width: 100%;
@@ -20,12 +25,12 @@
     border-bottom-right-radius: 50% 20%;
   }
 
-  &__questions {
+  &__instructions {
     text-align: center;
     margin-block-end: 120px;
   }
   
-  &__questions-title {
+  &__instructions-title {
     width: 90%;
     font-weight: 600;
     margin-inline: auto;
@@ -33,25 +38,92 @@
     margin-block-end: 100px;
   }
 
-  &__questions-container {
+  &__instructions-container {
+    gap: 60px;
     width: 80%;
-    padding: 45px;
-    border-radius: 30px;
+    display: flex;
+    flex-wrap: wrap;
     margin-inline: auto;
-    border: 1px solid $color-pink-swan;
+    justify-content: space-between;
 
     @include forScreen("tablet") {
-      width: 85%;
-      padding: 0;
-      border: none;
+      width: 90%;
     }
   }
 
-  .map-card {
-    margin-block-end: 50px;
+  .instruction-card {
+    flex-basis: 350px;
 
     @include forScreen("tablet") {
-      height: 320px;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    width: 80%;
+    text-align: center;
+    margin-inline: auto;
+    margin-block-end: 120px;
+
+    @include forScreen("tablet") {
+      width: 90%;
+    }
+  }
+
+  &__content-title {
+    font-size: toRem(45);
+    margin-bottom: 100px;
+    
+    @include forScreen("tablet") {
+      margin-bottom: 65px;
+    }
+  }
+
+  &__content-paragraph {
+    font-size: toRem(32);
+    text-align: start;
+    display: flex;
+    gap: 70px;
+
+    @include forScreen("tablet") {
+      gap: 10px;
+    }
+  }
+  
+  &__content-container:last-child &__content-paragraph {
+    margin-block-end: 70px;
+    
+    @include forScreen("tablet") {
+      margin-block-end: 15px;
+    }
+  }
+
+  &__content-paragraph-icon {
+    height: 80px;
+    flex-shrink: 0;
+    flex-basis: 80px;
+    position: relative;
+    border-radius: 50%;
+    font-size: toRem(80);
+    display: inline-block;
+    background-color: $color-secondary;
+
+    @include forScreen("tablet") {
+      height: 25px;
+      flex-basis: 25px;
+      font-size: toRem(45);
+    }
+  }
+
+  &__content-paragraph-icon > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateY(-35%);
+
+    @include forDirection("rtl") {
+      left: unset;
+      right: 0;
     }
   }
 }

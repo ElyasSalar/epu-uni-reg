@@ -32,9 +32,4 @@ export const NAVBAR_ITEMS: Array<NavbarItems> = [
     href: ROUTES.qa.path,
     translationKey: "nav_qa",
   },
-  {
-    id: ROUTES.contactus.name,
-    href: ROUTES.contactus.path,
-    translationKey: "nav_contactus",
-  },
 ]

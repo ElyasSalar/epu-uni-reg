@@ -44,3 +44,16 @@ $screen-sizes: (
     scale: 1;
   }
 }
+
+@mixin forDirection($direction) {
+	@if $direction == "ltr" {
+		[dir="ltr"] & {
+			@content;
+		}
+	}
+	@if $direction == "rtl" {
+		[dir="rtl"] & {
+			@content;
+		}
+	}
+}

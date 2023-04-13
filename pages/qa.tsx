@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { useMemo } from "react"
 import Layout from "../components/Layout"
 import Accordion from "../components/Accordion"
 import {
@@ -19,10 +20,10 @@ import type { NextPage } from "next"
 const QA: NextPage = () => {
   const { t } = useTranslation(["qa"])
 
-  const preparedAccordion = QUESTIONS_AND_ANSWERS.map(({ question, answer }) => ({
+  const preparedAccordion = useMemo(() => QUESTIONS_AND_ANSWERS.map(({ question, answer }) => ({
     title: t(question),
     description: t(answer)
-  }))
+  })), [t])
 
   return (
     <Layout>
@@ -30,7 +31,7 @@ const QA: NextPage = () => {
         <section className="qa__cover">
           <Image
             src={qaCoverImage}
-            alt="cover image for the map"
+            alt="cover image for the questinos and answers"
             className="qa__cover-image"
           />
         </section>

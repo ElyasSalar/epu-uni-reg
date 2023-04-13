@@ -6,6 +6,11 @@ export const ROUTES = {
   instructions: {
     name: "instructions",
     path: "/instructions",
+
+    howToRegister: {
+      name: "how-to-register",
+      path: "/instructions/how-to-register",
+    },
   },
   onlineRegistration: {
     name: "registration",
@@ -14,10 +19,6 @@ export const ROUTES = {
   locations: {
     name: "locations",
     path: "/locations",
-  },
-  contactus: {
-    name: "contactus",
-    path: "/contactus",
   },
   qa: {
     name: "qa",
