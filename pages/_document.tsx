@@ -5,8 +5,9 @@ export default function Document() {
     <Html>
       <Head>
         <meta name="google" content="notranslate" />
-        <link rel="icon" href={`http://${process.env.NEXT_PUBLIC_VERCEL_URL}/images/epu-logo.png`} />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        <link rel="icon" href={`http://${process.env.NEXT_PUBLIC_VERCEL_URL}/images/epu-logo.png`} />
       </Head>
       <body>
         <Main />
