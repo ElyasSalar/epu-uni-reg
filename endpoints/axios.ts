@@ -1,6 +1,5 @@
 import axios from "axios"
-import { BASE_URL } from "../shared/constants/routes"
 
 export const axiosApiInstance = axios.create({
-  baseURL: `${BASE_URL}/api/`,
+  baseURL: `http://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/`,
 })
