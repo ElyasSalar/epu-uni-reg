@@ -70,10 +70,10 @@
   &__helper {
     font-size: toRem(12);
     visibility: hidden;
+    text-align: start;
 
     @include forScreen("tablet") {
       font-size: toRem(16);
-      text-align: start;
     }
   }
 

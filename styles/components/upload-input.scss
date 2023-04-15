@@ -41,6 +41,10 @@
     display: block;
     text-align: start;
     font-size: toRem(14);
+
+    @include forScreen("tablet") {
+      font-size: toRem(24);
+    }
   }
 
   &__input {
@@ -53,7 +57,7 @@
     padding-inline: 15px;
     justify-content: space-between;
   }
-
+  
   &__title {
     flex-basis: 70%;
     max-width: 20ch;
@@ -61,6 +65,10 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    
+    @include forScreen("tablet") {
+      font-size: toRem(24);
+    }
   }
 
   &__buttons {
@@ -94,6 +102,10 @@
   &__helper {
     font-size: toRem(12);
     visibility: hidden;
+
+    @include forScreen("tablet") {
+      font-size: toRem(24);
+    }
   }
 
   &__helper[aria-invalid="true"] {

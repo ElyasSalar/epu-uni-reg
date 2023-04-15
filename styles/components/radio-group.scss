@@ -4,6 +4,10 @@
   &__label {
     display: block;
     font-size: toRem(14);
+
+    @include forScreen("tablet") {
+      font-size: toRem(24);
+    }
   }
 
   &__options {
@@ -15,6 +19,10 @@
     border-radius: 6px;
     border: 1px solid black;
     background-color: black;
+
+    @include forScreen("tablet") {
+      font-size: toRem(24);
+    }
   }
 
   &__option {
