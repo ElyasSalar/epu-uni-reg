@@ -24,4 +24,13 @@ export const ROUTES = {
     name: "qa",
     path: "/qa",
   },
+  dashboard: {
+    name: "dashboard",
+    path: "/dashboard",
+
+    login: {
+      name: "login",
+      path: "/dashboard/login",
+    },
+  }
 }

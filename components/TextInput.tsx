@@ -3,7 +3,7 @@ import classNames from "classnames"
 
 import type { InputHTMLAttributes, LegacyRef, DetailedHTMLProps } from "react"
 
-type CustomInputProps = Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size"> & {
+type TextInputProps = Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "size"> & {
   id?: string
   placeholder: string
   helperText: string
@@ -12,7 +12,7 @@ type CustomInputProps = Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElem
   size: "large" | "middle" | "small"
 }
 
-const CustomInput = forwardRef((props: CustomInputProps, ref: LegacyRef<HTMLInputElement>) => {
+const TextInput = forwardRef((props: TextInputProps, ref: LegacyRef<HTMLInputElement>) => {
   return (
     <div className="text-input">
       <label
@@ -53,6 +53,6 @@ const CustomInput = forwardRef((props: CustomInputProps, ref: LegacyRef<HTMLInpu
   )
 })
 
-CustomInput.displayName = "CustomInput"
+TextInput.displayName = "TextInput"
 
-export default CustomInput
+export default TextInput

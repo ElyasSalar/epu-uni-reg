@@ -1,0 +1,8 @@
+{
+  "login_form_title": "Registration System",
+  "login_username_label": "Username",
+  "login_username_placeholder": "Username",
+  "login_password_label": "Password",
+  "login_password_placeholder": "Password",
+  "login_button": "Login"
+}

@@ -7,6 +7,7 @@ const rootDir = path.resolve(__dirname, "../");
 loadEnvConfig(rootDir);
 const createDepartmentsTableQuery = readFileSync(path.resolve(__dirname, "../queries/departments-table.sql"), "utf8").toString();
 const createDocumentsTableQuery = readFileSync(path.resolve(__dirname, "../queries/documents-table.sql"), "utf8").toString();
+const createUsersTableQuery = readFileSync(path.resolve(__dirname, "../queries/users-table.sql"), "utf8").toString();
 const createCollagesTableQuery = readFileSync(path.resolve(__dirname, "../queries/collages-table.sql"), "utf8").toString();
 const createStudentsTableQuery = readFileSync(path.resolve(__dirname, "../queries/students-table.sql"), "utf8").toString();
 const departmentsContent = readFileSync(__dirname + "/departments.json", "utf8")
@@ -72,6 +73,7 @@ async function seed() {
     await connection.query(createDepartmentsTableQuery);
     await connection.query(createDocumentsTableQuery);
     await connection.query(createStudentsTableQuery);
+    await connection.query(createUsersTableQuery);
     await connection.query(addCollagesQuery.slice(0, -1));
     await connection.query(addDepartmentsQuery.slice(0, -1));
     
