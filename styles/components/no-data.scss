@@ -1,0 +1,17 @@
+.no-data {
+  gap: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  &__icon {
+    width: 250px;
+  }
+
+  &__description {
+    font-weight: 600;
+    font-size: toRem(40);
+    color: $color-mine-shaft;
+  }
+}

@@ -1,0 +1,142 @@
+.students {
+  padding: 50px;
+  width: 100%;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-block-end: 20px;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: toRem(26);
+    font-weight: 600;
+  }
+  
+  &__total {
+    font-size: toRem(20);
+    font-weight: 500;
+  }
+
+  &__table-container {
+    background-color: white;
+    height: calc(100% - 50px);
+    border-radius: 7px;
+    position: relative;
+  }
+  
+  &__table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  &__table th {
+    border-block-end: 1px solid $color-mercury;
+    color: $color-mine-shaft;
+    padding-block: 15px;
+    font-size: toRem(18);
+    text-align: start;
+    font-weight: 500;
+  }
+
+  &__table th:first-child {
+    padding-inline-start: 20px;
+  }
+
+  &__table th:last-child {
+    padding-inline-end: 20px;
+  }
+  
+  &__table td {
+    border-block-end: 1px solid $color-mercury;
+    color: $color-dove-gray;
+    font-size: toRem(16);
+    font-weight: 400;
+    height: 60px;
+  }
+  
+  &__table td:first-child {
+    padding-inline-start: 20px;
+  }
+
+  &__table td:last-child {
+    padding-inline-end: 20px;
+  }
+
+  &__table tbody tr:hover {
+    background-color: $color-zircon;
+    cursor: pointer;
+  }
+
+  &__table-action-button {
+    background-color: transparent;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__table-action-button:hover {
+    background-color: $color-brick-red;
+  }
+
+  &__table-action-button:hover &__table-action-icon {
+    color: white;
+  }
+
+  &__table-action-icon {
+    color: $color-brick-red;
+    width: 15px;
+    transition: color 200ms ease-in-out;
+  }
+
+  &__dialog-title {
+    width: 500px;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: toRem(26);
+  }
+
+  &__dialog-description {
+    font-size: toRem(20);
+    font-family: inherit;
+  }
+
+  &__dialog-actions {
+    display: flex;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  &__dialog-negative {
+    font-family: inherit;
+    font-weight: 500;
+    padding: 10px;
+  }
+  
+  &__dialog-positive {
+    padding: 10px;
+    color: white;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: $color-brick-red;
+  }
+
+  .pagination {
+    justify-content: center;
+    position: absolute;
+    display: flex;
+    bottom: 30px;
+    padding: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .no-data {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "students_title": "Manage Students",
+  "students_total": "Total: {{totalStudents}} Students",
+  "students_search_placeholder": "Search by name, serial number, or phone number...",
+  "students_table_header_fullname": "full name",
+  "students_table_header_serialnumber": "serial number",
+  "students_table_header_collage": "collage",
+  "students_table_header_department": "department",
+  "students_table_header_phonenumber": "phone number",
+  "students_table_header_actions": "actions",
+  "students_delete_student_dialog_title": "delete student",
+  "students_delete_student_dialog_description": "are you sure you want to delete `{{name}}`?",
+  "students_delete_student_dialog_negative_button": "cancel",
+  "students_delete_student_dialog_positive_button": "delete",
+  "students_delete_student_success_message": "student deleted successfully",
+  "students_delete_student_error_message": "something went wrong"
+}

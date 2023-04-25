@@ -1,3 +1,2 @@
 GET http://localhost:3000/api/students HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbHlhc2RldiIsInBhc3N3b3JkIjoiZWx5YXMxMjM0NSIsImlhdCI6MTY4MjI3ODE5NCwiZXhwIjoxNjgyODgyOTk0fQ.AvJKAyOGNMOBh4lpVFJRf6tyM2vtUDQs2iVMUGC-5ag

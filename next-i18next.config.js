@@ -4,4 +4,5 @@ module.exports = {
     localeDetection: false,
     defaultLocale: "ckb",
   },
+  returnNull: false,
 }

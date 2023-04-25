@@ -137,6 +137,7 @@ const Registration = ({
     setDepartments(departments.data)
   }
 
+  console.log(studentData.current)
   const handlePeronsalSubmit = (data: RegistrationStep1) => {
     studentData.current = {
       ...studentData.current,
@@ -144,7 +145,7 @@ const Registration = ({
       secondName: data.secondName,
       thirdName: data.thirdName,
       serialNumber: Number(data.serialNumber),
-      departmentId: Number(data.department.id),
+      departmentId: data.department.id,
     }
     setStepIndex(1)
   }

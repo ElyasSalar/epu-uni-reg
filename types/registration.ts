@@ -35,5 +35,5 @@ export type RegistrationStep4 = {
 }
 
 export type RegistrationFormData = Omit<Omit<RegistrationStep1, "collage">, "department"> & {
-  departmentId: number
+  departmentId: string
 } & RegistrationStep2 & RegistrationStep3 & RegistrationStep4

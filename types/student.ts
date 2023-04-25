@@ -23,3 +23,33 @@ export type Student = {
   identityCardId: string,
   reigsteredAt: Date,
 }
+
+export type GetStudentsParams = {
+  searchQuery?: string,
+  page: number,
+  size: number,
+}
+
+export type GetStudentsApiResponse = Omit<
+  Student,
+  "departmentId" |
+  "nationality" |
+  "language" |
+  "religion" |
+  "familyPhoneNumber" |
+  "email" |
+  "bailId" |
+  "schoolGraduationCertificateId" |
+  "instituteGraduationCertificateId" |
+  "chieftainApprovalId" |
+  "securitySupportId" |
+  "nationalityCardId" |
+  "informationCardId" |
+  "rationCardId" |
+  "nationalityCertificateId" |
+  "identityCardId" |
+  "reigsteredAt"
+> & {
+  department: string
+  collage: string
+}

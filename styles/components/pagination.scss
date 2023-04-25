@@ -1,0 +1,31 @@
+.pagination {
+  gap: 8px;
+  display: flex;
+  list-style: none;
+
+  &__page, &__previous, &__next, &__break {
+    height: 30px;
+    min-width: 30px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: toRem(14);
+    border: 1px solid $color-mercury;
+    transition: background-color 200ms ease-in-out;
+
+    &:hover {
+      background-color: $color-mercury;
+    }
+  }
+
+  &__page-link, &__previous-link, &__next-link, &__break-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__page-link--active {
+    background-color: $color-secondary;
+  }
+}

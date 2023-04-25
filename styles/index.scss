@@ -18,6 +18,10 @@
 @import "./components/map-card.scss";
 @import "./components/accordion.scss";
 @import "./components/instruction-card.scss";
+@import "./components/search-bar.scss";
+@import "./components/pagination.scss";
+@import "./components/dashboard-layout.scss";
+@import "./components/no-data.scss";
 
 // pages
 @import "./pages/home.scss";
@@ -26,3 +30,4 @@
 @import "./pages/qa.scss";
 @import "./pages/instructions.scss";
 @import "./pages/login.scss";
+@import "./pages/students.scss";

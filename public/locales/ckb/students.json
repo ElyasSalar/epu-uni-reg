@@ -1,0 +1,17 @@
+{
+  "students_title": "ڕێکخستنی خوێندکاران",
+  "students_total": "سەرجەم: {{totalStudents}} خوێندکاران",
+  "students_search_placeholder": "بە ناو، ژمارەی زنجیرەیی، یان ژمارەی تەلەفۆن بگەڕێ...",
+  "students_table_header_fullname": "ناو تەواو",
+  "students_table_header_serialnumber": "ژمارەی زنجیرە",
+  "students_table_header_collage": "کۆلێژ",
+  "students_table_header_department": "بەش",
+  "students_table_header_phonenumber": "ژمارەی موبایل",
+  "students_table_header_actions": "کردارەکان",
+  "students_delete_student_dialog_title": "سڕینەوەی خوێندکار",
+  "students_delete_student_dialog_description": "دڵنیایە دەتەوێت خوێندکار `{{name}}` بسڕیتەوە؟",
+  "students_delete_student_dialog_negative_button": "هەڵوەشاندنەوە",
+  "students_delete_student_dialog_positive_button": "سڕینەوە",
+  "students_delete_student_success_message": "خوێندکار بە سەرکەوتوویی سڕایەوە",
+  "students_delete_student_error_message": "کێشەیەک ڕوویدا"
+}
