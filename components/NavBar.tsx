@@ -1,7 +1,7 @@
 import Link from "next/link"
 import classNames from "classnames"
 import { useRouter } from "next/router"
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "next-i18next"
 import useScroll from "../shared/hooks/useScroll"
 import { LOCALES } from "../shared/constants/locale"
 import { useLayoutEffect, useRef, useState } from "react"
