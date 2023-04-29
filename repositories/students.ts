@@ -91,7 +91,7 @@ export default class StudentsRepository {
   
       return response
     } catch (error: any) {
-      throw new BadRequestError(error)
+      throw new BadRequestError("Duplicate Serial Number")
     }
   }
 
