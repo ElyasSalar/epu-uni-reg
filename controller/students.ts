@@ -20,7 +20,7 @@ export default class StudentsController {
   }
 
   static async getStudents(request: NextApiRequest, response: NextApiResponse) {
-    const user = await AuthController.isAuthenticated(request)
+    const user = await AuthController.isAuthenticated(request.headers.authorization)
 
     if (user === null) {
       return ApiError.handle(new AuthFailureError(), response)
@@ -42,7 +42,7 @@ export default class StudentsController {
   }
 
   static async deleteStudentById(request: NextApiRequest, response: NextApiResponse) {
-    const user = await AuthController.isAuthenticated(request)
+    const user = await AuthController.isAuthenticated(request.headers.authorization)
 
     if (user === null) {
       return ApiError.handle(new AuthFailureError(), response)

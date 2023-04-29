@@ -1,4 +1,4 @@
-export const DASHBOARD_TABLE_HEADER = [
+export const STUDENTS_TABLE_HEADER = [
   {
     translationKey: "students_table_header_fullname",
   },

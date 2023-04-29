@@ -1,17 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from "react"
-import jwt from "jsonwebtoken"
 import { useRouter } from "next/router"
 import NoData from "../../components/NoData"
 import { useTranslation } from "next-i18next"
 import { translateNumber } from "../../lib/locale"
 import SearchBar from "../../components/SearchBar"
+import AuthController from "../../controller/auth"
 import Pagination from "../../components/Pagination"
 import { ROUTES } from "../../shared/constants/routes"
 import { LOCALE_DIR } from "../../shared/constants/locale"
 import DashboardLayout from "../../components/DashboardLayout"
 import { deleteStudentById, getStudents } from "../../endpoints/students"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import { DASHBOARD_TABLE_HEADER } from "../../shared/constants/dashboard/dashboard"
+import { STUDENTS_TABLE_HEADER } from "../../shared/constants/dashboard/students"
 
 import Alert from "@mui/material/Alert"
 import Dialog from '@mui/material/Dialog'
@@ -23,20 +23,20 @@ import DialogTitle from '@mui/material/DialogTitle'
 
 import TrashIcon from "../../assets/icons/trash.svg"
 
+import type { GetStudentsApiResponse } from "../../types/student"
 import type { NextPage, GetServerSidePropsContext } from "next"
 import type { WithPagination } from "../../types/general"
-import type { GetStudentsApiResponse } from "../../types/student"
 import type { Locale } from "../../types/locales"
 import type { AlertColor } from "@mui/material"
+import type { MouseEventHandler } from "react"
+import type { User } from "../../types/user"
 
-// FIXME - start working on the details page
-
-const Dashboard: NextPage = () => {
+const Students: NextPage<{ user: User }> = ({ user }) => {
   const studentDeleteDialog = useRef<{
     name: string,
     id: string,
   }>({ name: "", id: "" })
-  const { locale } = useRouter()
+  const router = useRouter()
   const { t } = useTranslation("students")
   const [page, setPage] = useState<number>(0)
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false)
@@ -68,7 +68,14 @@ const Dashboard: NextPage = () => {
     setPage(page.selected)
   }
 
-  const handleStudentDeleteClick = ({ id, name }: { id: string, name: string }) => async () => {
+  const handleStudentDeleteClick = ({
+    id,
+    name
+  }: {
+    id: string
+    name: string
+  }): MouseEventHandler<HTMLButtonElement> => (event) => {
+    event.stopPropagation()
     studentDeleteDialog.current = { id, name }
     setIsDialogOpen(true)
   }
@@ -100,17 +107,21 @@ const Dashboard: NextPage = () => {
     setIsDialogOpen(false)
   }
 
+  const handleRowClick = (id: string) => () => {
+    router.push(ROUTES.students.details.path.replace(":studentId", id))
+  }
+
   useEffect(() => {
     fetchStudents()
   }, [fetchStudents])
   
   return (
-    <DashboardLayout>
+    <DashboardLayout userName={user.name}>
       <main className="students">
         <div className="students__header">
           <h1 className="students__title">{t("students_title")}</h1>
           <h3 className="students__total">{t("students_total", {
-            totalStudents: translateNumber(students.totalElements, locale),
+            totalStudents: translateNumber(students.totalElements, router.locale),
           })}</h3>
         </div>
         <div className="students__table-container">
@@ -125,7 +136,7 @@ const Dashboard: NextPage = () => {
               <table className="students__table">
                 <thead>
                   <tr>
-                    {DASHBOARD_TABLE_HEADER.map(({ translationKey }) => (
+                    {STUDENTS_TABLE_HEADER.map(({ translationKey }) => (
                       <th key={translationKey}>{t(translationKey)}</th>
                     ))}
                   </tr>
@@ -141,7 +152,7 @@ const Dashboard: NextPage = () => {
                     phoneNumber,
                     serialNumber,
                   }) => (
-                    <tr key={id}>
+                    <tr key={id} onClick={handleRowClick(id)}>
                       <td>{"".concat(firstName, " ", secondName, " ", thirdName)}</td>
                       <td>{serialNumber}</td>
                       <td>{collage}</td>
@@ -177,7 +188,7 @@ const Dashboard: NextPage = () => {
         </Snackbar>
         <Dialog
           open={isDialogOpen}
-          dir={LOCALE_DIR[locale]}
+          dir={LOCALE_DIR[router.locale]}
           aria-labelledby="delete student"
           onClose={() => setIsDialogOpen(false)}
           aria-describedby="delete student dialog"
@@ -208,24 +219,26 @@ const Dashboard: NextPage = () => {
   )
 }
 
-export default Dashboard
+export default Students
 
 export async function getServerSideProps({ locale, req }: GetServerSidePropsContext & { locale: Locale }) {
   const redirectToLogin = {
     redirect: {
-      destination: ROUTES.dashboard.login.path,
+      destination: ROUTES.students.login.path,
       permanent: false,
+      locale,
     },
   }
   if (req.cookies.accessToken === undefined) return redirectToLogin
 
-  const user = jwt.verify(req.cookies.accessToken, process.env.JWT_SECRET_KEY as string)
+  const user = await AuthController.isAuthenticated(`Bearer ${req.cookies.accessToken}`)
   
   if (user === null) return redirectToLogin
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common", "students"])),
+      user,
     },
   }
 }

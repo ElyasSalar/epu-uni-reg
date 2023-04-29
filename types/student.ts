@@ -53,3 +53,8 @@ export type GetStudentsApiResponse = Omit<
   department: string
   collage: string
 }
+
+export type GetStudentDetails = Student & {
+  department: string
+  collage: string
+}

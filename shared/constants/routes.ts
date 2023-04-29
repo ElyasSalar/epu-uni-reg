@@ -24,13 +24,18 @@ export const ROUTES = {
     name: "qa",
     path: "/qa",
   },
-  dashboard: {
-    name: "dashboard",
-    path: "/dashboard",
+  students: {
+    name: "students",
+    path: "/students",
 
     login: {
       name: "login",
-      path: "/dashboard/login",
+      path: "/students/login",
     },
+
+    details: {
+      name: "details",
+      path: "/students/:studentId",
+    }
   }
 }

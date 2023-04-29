@@ -38,9 +38,7 @@ export default class AuthController {
     response.status(200).json({ token })
   }
 
-  static async isAuthenticated(request: NextApiRequest): Promise<User | null> {
-    const { authorization } = request.headers
-
+  static async isAuthenticated(authorization?: string): Promise<User | null> {
     if (authorization === undefined) {
       return null
     }
@@ -49,8 +47,14 @@ export default class AuthController {
 
     try {
       const user = jwt.verify(token, process.env.JWT_SECRET_KEY as string) as User
+
+      const users = await UsersRepository.getUserByUsername({ username: user.username })
       
-      return user
+      if (users.length === 0) {
+        throw new NoEntryError("username doesn't exist")
+      }
+      
+      return users[0]
     } catch (error) {
       return null
     }

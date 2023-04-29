@@ -11,8 +11,9 @@ import LanguagesIcon from "../assets/icons/languages.svg"
 import type { Locale } from "../types/locales"
 import type { ReactNode } from "react"
 
-const DashboardLayout = ({ children }: {
-  children: ReactNode
+const DashboardLayout = ({ children, userName }: {
+  children: ReactNode,
+  userName: string,
 }) => {
   const { t } = useTranslation("common")
   const { asPath, locale } = useRouter()
@@ -30,12 +31,12 @@ const DashboardLayout = ({ children }: {
           <div className="dashboard-layout__navbar-profile-icon-circle">
             <PersonIcon className="dashboard-layout__navbar-profile-icon" />
           </div>
-          <p className="dashboard-layout__navbar-profile-text">Person name</p>
+          <p className="dashboard-layout__navbar-profile-text">{userName}</p>
         </div>
       </nav>
       <div className="dashboard-layout__container">
         <aside className="dashboard-layout__sidebar">
-          <Link href={ROUTES.dashboard.path} className="dashboard-layout__sidebar-item">
+          <Link href={ROUTES.students.path} className="dashboard-layout__sidebar-item">
             <HomeIcon className="dashboard-layout__sidebar-icon" />
             <p className="dashboard-layout__sidebar-text">Home</p>
           </Link>

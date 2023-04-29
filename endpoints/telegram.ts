@@ -8,6 +8,7 @@ export default class TelegramApi {
   private static botToken: string = process.env.TELEGRAM_BOT_TOKEN || ""
   private static chatId: string = process.env.TELEGRAM_BOT_CHAT_ID || ""
   private static baseUrl = `https://api.telegram.org/bot${this.botToken}`
+  private static filePath = `https://api.telegram.org/file/bot${this.botToken}`
 
   private static axiosInstance = axios.create({
     baseURL: this.baseUrl,
@@ -28,11 +29,11 @@ export default class TelegramApi {
     }
   }
 
-  public static async getFile(fileId: string, config?: AxiosRequestConfig): Promise<AxiosResponse<TypegramFile>> {
+  public static async getFile(fileId: string, config?: AxiosRequestConfig): Promise<AxiosResponse<ApiSuccess<TypegramFile>>> {
     const params = new URLSearchParams()
     params.append("file_id", fileId)
 
-    const response = await this.axiosInstance.get<TypegramFile>(`/getFile?${params}`, config)
+    const response = await this.axiosInstance.get<ApiSuccess<TypegramFile>>(`/getFile?${params}`, config)
     return response
   }
 
@@ -42,5 +43,9 @@ export default class TelegramApi {
     params.append("message_id", String(messageId))
 
     await this.axiosInstance.post(`/deleteMessage?${params}`, config)
+  }
+
+  public static getFileUrl(fileId?: string): string {
+    return `${this.filePath}/${fileId}`
   }
 }

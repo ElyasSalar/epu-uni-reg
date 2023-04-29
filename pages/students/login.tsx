@@ -33,7 +33,7 @@ const Login: NextPage = () => {
       if (response.status === 200) {
         setLoginError("")
         saveToken(response.data.token)
-        replace(ROUTES.dashboard.path)
+        replace(ROUTES.students.path)
       }
     } catch (error: any) {
       setLoginError(error.response.data.message)
@@ -61,6 +61,7 @@ const Login: NextPage = () => {
         <TextInput
           {...register("password")}
           size="large"
+          type="password"
           label={t("login_password_label")}
           placeholder={t("login_password_placeholder")}
           helperText={t(formState.errors.password?.message as string)}

@@ -2,11 +2,12 @@ import DbConnection from "./connection"
 import { NoEntryError } from "../config/apiError"
 
 import type { OkPacket, RowDataPacket } from "mysql2"
-import type { GetStudentsApiResponse } from "../types/student"
+import type { GetStudentDetails, GetStudentsApiResponse } from "../types/student"
 import type { RegistrationFormData } from "../types/registration"
 import type { WithPagination } from "../types/general"
 
 interface GetStudentsResponse extends RowDataPacket, GetStudentsApiResponse {}
+interface GetStudentByIdResponse extends OkPacket, GetStudentDetails {}
 
 export default class StudentsRepository {
   static async registerStudent(studentDocument: RegistrationFormData) {
@@ -149,6 +150,27 @@ export default class StudentsRepository {
         totalElements: studentsCount.totalElements,
         totalPages: Math.ceil(studentsCount.totalElements / limit),
       }
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async getStudentById(id: string): Promise<GetStudentByIdResponse> {
+    const connection = await DbConnection.getConnection()
+
+    try {
+      const [[student]] = await connection.query<GetStudentByIdResponse[]>(`
+        SELECT s.*, d.englishDepartmentName as department, c.englishCollageName as collage
+        FROM students as s
+        JOIN departments as d ON d.id = s.departmentId
+        JOIN collages as c ON c.id = d.collageId
+        WHERE s.id = ${id}
+      `)
+      if (student === undefined) {
+        throw new NoEntryError()
+      }
+
+      return student
     } catch (error) {
       throw error
     }
