@@ -1,3 +1,4 @@
+import Head from "next/head"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { useRouter } from "next/router"
 import NoData from "../../components/NoData"
@@ -116,6 +117,9 @@ const Students: NextPage<{ userFullName: string }> = ({ userFullName }) => {
   
   return (
     <DashboardLayout userName={userFullName}>
+      <Head>
+        <title>Students</title>
+      </Head>
       <main className="students">
         <div className="students__header">
           <h1 className="students__title">{t("students_title")}</h1>

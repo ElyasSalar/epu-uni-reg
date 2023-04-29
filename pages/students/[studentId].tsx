@@ -14,6 +14,7 @@ import DownloadFileIcon from "../../assets/icons/download-file.svg"
 import type { NextPage, GetServerSidePropsContext } from "next"
 import type { GetStudentDetails, Student } from "../../types/student"
 import type { Locale } from "../../types/locales"
+import Head from "next/head"
 
 const StudentDetails: NextPage<{ student: GetStudentDetails, userFullName: string }> = ({ student, userFullName }) => {
   const { t } = useTranslation("student-details")
@@ -58,6 +59,9 @@ const StudentDetails: NextPage<{ student: GetStudentDetails, userFullName: strin
   
   return (
     <DashboardLayout userName={userFullName}>
+      <Head>
+        <title>Student - {student.firstName}</title>
+      </Head>
       <main className="student-details">
         <div className="student-details__profile">
           <h3 className="student-details__profile-title">{t("studentdetails_information_title")}</h3>

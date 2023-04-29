@@ -1,3 +1,4 @@
+import Head from "next/head"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { useForm } from "react-hook-form"
@@ -42,6 +43,9 @@ const Login: NextPage = () => {
 
   return (
     <div className="login">
+      <Head>
+        <title>Login</title>
+      </Head>
       <form className="login__form" onSubmit={handleSubmit(submitHandler)}>
         <div className="login__form-header">
           <Image
