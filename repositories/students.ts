@@ -1,5 +1,5 @@
 import DbConnection from "./connection"
-import { NoEntryError } from "../config/apiError"
+import { BadRequestError, NoEntryError } from "../config/apiError"
 
 import type { OkPacket, RowDataPacket } from "mysql2"
 import type { GetStudentDetails, GetStudentsApiResponse } from "../types/student"
@@ -37,58 +37,62 @@ export default class StudentsRepository {
       identityCardId,
     } = studentDocument
 
-    const [response] = await connection.query(`
-      INSERT INTO students(
-        firstName,
-        secondName,
-        thirdName,
-        departmentId,
-        serialNumber,
-        nationality,
-        language,
-        religion,
-        phoneNumber,
-        familyPhoneNumber,
-        email,
-        bailId,
-        schoolGraduationCertificateId,
-        instituteGraduationCertificateId,
-        chieftainApprovalId,
-        securitySupportId,
-        nationalityCardId,
-        informationCardId,
-        rationCardId,
-        nationalityCertificateId,
-        identityCardId
+    try {
+      const [response] = await connection.query(`
+        INSERT INTO students(
+          firstName,
+          secondName,
+          thirdName,
+          departmentId,
+          serialNumber,
+          nationality,
+          language,
+          religion,
+          phoneNumber,
+          familyPhoneNumber,
+          email,
+          bailId,
+          schoolGraduationCertificateId,
+          instituteGraduationCertificateId,
+          chieftainApprovalId,
+          securitySupportId,
+          nationalityCardId,
+          informationCardId,
+          rationCardId,
+          nationalityCertificateId,
+          identityCardId
+        )
+        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `,
+        [
+          firstName,
+          secondName,
+          thirdName,
+          departmentId,
+          serialNumber,
+          nationality,
+          language,
+          religion,
+          Number(phoneNumber),
+          Number(familyPhoneNumber),
+          email,
+          bailId,
+          schoolGraduationCertificateId,
+          instituteGraduationCertificateId,
+          chieftainApprovalId,
+          securitySupportId,
+          nationalityCardId,
+          informationCardId,
+          rationCardId,
+          nationalityCertificateId,
+          identityCardId,
+        ]
       )
-      VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `,
-      [
-        firstName,
-        secondName,
-        thirdName,
-        departmentId,
-        serialNumber,
-        nationality,
-        language,
-        religion,
-        Number(phoneNumber),
-        Number(familyPhoneNumber),
-        email,
-        bailId,
-        schoolGraduationCertificateId,
-        instituteGraduationCertificateId,
-        chieftainApprovalId,
-        securitySupportId,
-        nationalityCardId,
-        informationCardId,
-        rationCardId,
-        nationalityCertificateId,
-        identityCardId,
-      ]
-    )
-
-    return response
+  
+      return response
+    } catch (error: any) {
+      throw new BadRequestError("Duplicate Serial Number")
+    }
   }
 
   static async getStudents({

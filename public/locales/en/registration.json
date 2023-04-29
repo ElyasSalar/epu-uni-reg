@@ -53,5 +53,6 @@
   "form_graduated_from_institute": "institute",
   "form_personal_document_options_label": "choose which documents you want to upload based on the availablity",
   "form_personal_document_option_one": "first",
-  "form_personal_document_option_two": "second"
+  "form_personal_document_option_two": "second",
+  "form_registration_success": "Your registration has been submitted successfully"
 }

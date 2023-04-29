@@ -14,12 +14,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { STUDENTS_TABLE_HEADER } from "../../shared/constants/dashboard/students"
 
 import Alert from "@mui/material/Alert"
-import Dialog from '@mui/material/Dialog'
+import Dialog from "@mui/material/Dialog"
 import Snackbar from "@mui/material/Snackbar"
-import DialogActions from '@mui/material/DialogActions'
-import DialogContent from '@mui/material/DialogContent'
-import DialogContentText from '@mui/material/DialogContentText'
-import DialogTitle from '@mui/material/DialogTitle'
+import DialogActions from "@mui/material/DialogActions"
+import DialogContent from "@mui/material/DialogContent"
+import DialogContentText from "@mui/material/DialogContentText"
+import DialogTitle from "@mui/material/DialogTitle"
 
 import TrashIcon from "../../assets/icons/trash.svg"
 

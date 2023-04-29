@@ -47,13 +47,23 @@ import Stepper from "../components/Stepper"
 import { useRouter } from "next/router"
 import classNames from "classnames"
 
+import Alert from "@mui/material/Alert"
+import Snackbar from "@mui/material/Snackbar"
+
 import ChevronLeft from "../assets/icons/chevron-left.svg"
 import ChevronRight from "../assets/icons/chevron-right.svg"
 
-import type { Locale } from "../types/locales"
-import type { RegistrationFormData, RegistrationStep1, RegistrationStep2, RegistrationStep3, RegistrationStep4 } from "../types/registration"
 import type { Department } from "../types/departments"
+import type { AlertColor } from "@mui/material/Alert"
 import type { Collage } from "../types/collage"
+import type { Locale } from "../types/locales"
+import type {
+  RegistrationStep1,
+  RegistrationStep2,
+  RegistrationStep3,
+  RegistrationStep4,
+  RegistrationFormData,
+} from "../types/registration"
 
 const Registration = ({
   collages
@@ -67,6 +77,11 @@ const Registration = ({
   const [departments, setDepartments] = useState<Department[]>([])
   const [graduationType, setGraduationType] = useState<string>(REGISTRATION_GRADUATION_TYPE_SCHOOL)
   const [personalDocumentsType, setPersonalDocumentsType] = useState<string>(PERSONAL_DOCUMENT_OPTION_1)
+  const [snackbarState, setSnackbarState] = useState<{
+    open: boolean,
+    message: string,
+    type: AlertColor
+  }>({ open: false, message: "", type: "info" })
   
   const studentData = useRef<Partial<RegistrationFormData>>({})
 
@@ -137,7 +152,6 @@ const Registration = ({
     setDepartments(departments.data)
   }
 
-  console.log(studentData.current)
   const handlePeronsalSubmit = (data: RegistrationStep1) => {
     studentData.current = {
       ...studentData.current,
@@ -176,10 +190,19 @@ const Registration = ({
 
     try {
       await registerStudent(studentData.current)
-      replace(ROUTES.onlineRegistration.path)
+      setSnackbarState({
+        open: true,
+        type: "success",
+        message: t("form_registration_success"),
+      })
+      replace(ROUTES.home.path)
       studentData.current = {}
-    } catch {
-      replace(ROUTES.onlineRegistration.path)
+    } catch (error: any) {
+      setSnackbarState({
+        open: true,
+        type: "error",
+        message: error.response.data.message,
+      })
     }
   }
 
@@ -559,6 +582,17 @@ const Registration = ({
           </div>
         </section>
       </div>
+      <Snackbar
+        open={snackbarState.open}
+        message={snackbarState.message}
+        onClose={() => setSnackbarState({
+          open: false,
+          message: "",
+          type: "info",
+        })}
+      >
+        <Alert severity={snackbarState.type}>{snackbarState.message}</Alert>
+      </Snackbar>
     </Layout>
   )
 }
