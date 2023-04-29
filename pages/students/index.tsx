@@ -29,9 +29,8 @@ import type { WithPagination } from "../../types/general"
 import type { Locale } from "../../types/locales"
 import type { AlertColor } from "@mui/material"
 import type { MouseEventHandler } from "react"
-import type { User } from "../../types/user"
 
-const Students: NextPage<{ user: User }> = ({ user }) => {
+const Students: NextPage<{ userFullName: string }> = ({ userFullName }) => {
   const studentDeleteDialog = useRef<{
     name: string,
     id: string,
@@ -116,7 +115,7 @@ const Students: NextPage<{ user: User }> = ({ user }) => {
   }, [fetchStudents])
   
   return (
-    <DashboardLayout userName={user.name}>
+    <DashboardLayout userName={userFullName}>
       <main className="students">
         <div className="students__header">
           <h1 className="students__title">{t("students_title")}</h1>
@@ -238,7 +237,7 @@ export async function getServerSideProps({ locale, req }: GetServerSidePropsCont
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common", "students"])),
-      user,
+      userFullName: user.name,
     },
   }
 }

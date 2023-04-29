@@ -14,9 +14,8 @@ import DownloadFileIcon from "../../assets/icons/download-file.svg"
 import type { NextPage, GetServerSidePropsContext } from "next"
 import type { GetStudentDetails, Student } from "../../types/student"
 import type { Locale } from "../../types/locales"
-import type { User } from "../../types/user"
 
-const StudentDetails: NextPage<{ student: GetStudentDetails, user: User }> = ({ student, user }) => {
+const StudentDetails: NextPage<{ student: GetStudentDetails, userFullName: string }> = ({ student, userFullName }) => {
   const { t } = useTranslation("student-details")
 
   const documentLinks = useMemo(() => generateFileIdsFromStudent(student), [student])
@@ -58,7 +57,7 @@ const StudentDetails: NextPage<{ student: GetStudentDetails, user: User }> = ({ 
   }, [documentLinks])
   
   return (
-    <DashboardLayout userName={user.name}>
+    <DashboardLayout userName={userFullName}>
       <main className="student-details">
         <div className="student-details__profile">
           <h3 className="student-details__profile-title">{t("studentdetails_information_title")}</h3>
@@ -178,7 +177,7 @@ export async function getServerSideProps({
     props: {
       ...(await serverSideTranslations(locale, ["common", "student-details"])),
       student: JSON.parse(JSON.stringify(student)),
-      user,
+      userFullName: user.name,
     },
   }
 }

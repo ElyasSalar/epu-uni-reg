@@ -7,5 +7,6 @@
   "nav_onlineregistration": "online registration",
   "nav_language": "kurdish",
   "upload_input_initial_title": "click to upload file",
-  "upload_input_uploading_title": "uploading file"
+  "upload_input_uploading_title": "uploading file",
+  "no_data_found": "no data found!"
 }
